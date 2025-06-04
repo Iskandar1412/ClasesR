@@ -229,32 +229,50 @@ mean(alumnos$nota[substr(alumnos$carnet, 1, 4) == '2017'])
 ```
 
 ```{r}
+# Cantidad de registros que tendrá el dataset
 n <- 100
+
+# Crear un data frame con 3 columnas simuladas:
 dataset <- data.frame(
-  cantidad = as.integer(runif(n, min = 10, max = 100)),
-  precio = rnorm(n, mean = 50, sd = 25),
-  disponible = sample(c(T,F), n, replace = T)
+  cantidad = as.integer(runif(n, min = 10, max = 100)),  # valores aleatorios uniformes entre 10 y 100 (como enteros)
+  precio = rnorm(n, mean = 50, sd = 25),                 # valores con distribución normal (media 50, sd 25)
+  disponible = sample(c(T,F), n, replace = T)            # valores TRUE o FALSE aleatorios con reemplazo
 )
+
+# Mostrar el contenido del dataset
 dataset
 
+# Obtener el número de filas del dataset
 nrow(dataset)
+
+# Obtener el número de columnas del dataset
 ncol(dataset)
+
+# Obtener las dimensiones del dataset (filas y columnas)
 dim(dataset)
+
+# Obtener los nombres de las columnas actuales
 colnames(dataset)
 ```
 
 ```{r}
+# Cambiar los nombres de las columnas
 colnames(dataset) <- c("Cantidad", "Precio", "Disponible")
 
+# Seleccionar toda la columna 1 (Cantidad)
 dataset[,1]
 
+# Seleccionar las columnas 1 y 3 (Cantidad y Disponible)
 dataset[, c(1,3)]
 
+# Seleccionar la primera fila completa
 dataset[1,]
 
+# Seleccionar las filas 1, 10 y 100 completas
 dataset[c(1, 10, 100),]
 
-dataset[c(1, 10, 100), c(2,3)] # aqui el c(2,3) sería en donde aparece la columna 2 y 3 (orden)
+# Seleccionar las filas 1, 10 y 100, pero solo las columnas 2 y 3 (Precio y Disponible)
+dataset[c(1, 10, 100), c(2,3)]  # c(2,3) indica que se están seleccionando columnas por su posición
 ```
 
 ```{r}
@@ -270,6 +288,7 @@ dataset[filtro,] # Se puede colocar una columna específica en orden
 ```
 
 ```{r}
+# calcula el promedio (media aritmética) de los valores en la columna Precio del data.frame llamado dataset.
 mean(dataset$Precio)
 ```
 
@@ -280,6 +299,224 @@ library(dplyr)
 library(ggplot2)
 ```
 
+# Clase 04/06
+```{r}
+dataset <- flights   # Asigna el dataset 'flights' a la variable 'dataset'
+head(dataset)        # Muestra las primeras 6 filas del dataset 'dataset'
+```
+
+```{r}
+colnames(dataset)
+```
+
+```{r}
+# Se usa para obtener una visión rápida y compacta de un dataset. En lugar de mostrar solo las primeras filas como lo hace head(), glimpse() muestra el nombre de las columnas, sus tipos de datos y una pequeña muestra de los valores de cada columna.
+glimpse(dataset)
+```
+
+```{r}
+View(dataset)
+```
+
+```{r}
+dataset %>%
+  filter(origin %in% c('CWR', 'LGA')) %>%  # Filtra solo los vuelos cuyo origen es 'CWR' o 'LGA'
+  filter(dep_time >= 3, dep_time <= 8) %>%  # Filtra solo los vuelos cuya hora de salida (dep_time) esté entre 3 y 8 (posiblemente en formato de 24 horas)
+  filter(air_time <= 150)                  # Filtra solo los vuelos cuya duración de vuelo (air_time) sea 150 minutos o menos
+```
+
+```{r}
+dataset %>%
+  filter(origin == 'EWR', dep_time <= 8, air_time <= 150)
+```
+
+```{r}
+# filter(dataset, origin == "EWR"):
+
+## Aplica el primer filtro en el dataset original (dataset).
+## origin == "EWR": Filtra todas las filas donde la columna origin (origen del vuelo) sea igual a 'EWR' (es decir, solo vuelos que tienen origen en EWR).
+## filter(..., dep_time <= 8):
+
+## dep_time <= 8: Este filtro selecciona las filas donde la columna dep_time (hora de salida) es menor o igual a 8. En otras palabras, se seleccionan los vuelos cuya hora de salida es antes de las 8 AM.
+
+## filter(..., air_time <= 150):
+
+## air_time <= 150: Este filtro selecciona los vuelos cuya duración (air_time) es menor o igual a 150 minutos.
+
+filter(filter(filter(dataset, origin == "EWR"), dep_time <= 8), air_time <= 150)
+```
+
+```{r}
+dataset %>%              # Pasa el dataset original a la siguiente función utilizando el operador pipe
+  distinct(origin)        # Selecciona las filas únicas de la columna 'origin' (origen de los vuelos)
+
+```
+
+```{r}
+unique(dataset$origin)
+```
+
+```{r}
+dataset %>%                           # Pasa el dataset original a la siguiente función utilizando el operador pipe
+  filter(!is.na(dep_delay))             # Filtra las filas donde 'dep_delay' (retraso de salida) no sea NA (valor ausente)
+  sample_frac(0.1, replace = F)        # Selecciona una muestra aleatoria del 10% (0.1) de las filas sin reemplazo
+```
+
+```{r}
+dataset %>%             # Pasa el dataset original a la siguiente función utilizando el operador pipe
+  sample_n(100, replace = F)  # Selecciona aleatoriamente 100 filas del dataset sin reemplazo
+```
+
+```{r}
+dataset %>%      # Pasa el dataset original a la siguiente función utilizando el operador pipe
+  slice(2:51)    # Selecciona las filas desde la 2 hasta la 51 (inclusive) del dataset
+```
+
+```{r}
+dataset[2:51,]
+```
+
+```{r}
+dataset %>%                        # Pasa el dataset original a la siguiente función utilizando el operador pipe
+  top_n(10, air_time)               # Selecciona las 10 filas con los mayores valores de 'air_time' (duración de vuelo)
+  arrange(-air_time)                # Ordena el dataset de manera descendente por la columna 'air_time'
+```
+
+```{r}
+dataset %>%                          # Pasa el dataset original a la siguiente función utilizando el operador pipe
+  select(dep_time, origin, dest, arr_time, air_time)  # Selecciona las columnas 'dep_time', 'origin', 'dest', 'arr_time', 'air_time' del dataset
+```
+
+```{r}
+dataset %>%                              # Pasa el dataset original a la siguiente función utilizando el operador pipe
+  select(ends_with("time"), origin, dest)  # Selecciona las columnas que terminan en 'time', junto con 'origin' y 'dest'
+```
+
+```{r}
+dataset %>%
+  select(starts_with("arr"), origin, dest)
+```
+
+```{r}
+dataset %>%                                           # Pasa el dataset original a la siguiente función utilizando el operador pipe
+  select(matches("(.+)_(.*)_(.*)"))                    # Selecciona las columnas cuyos nombres coinciden con el patrón de expresión regular
+```
+
+```{r}
+library(MASS)
+```
+
+```{r}
+dataset %>%                                            # Pasa el dataset original a la siguiente función utilizando el operador pipe
+  dplyr::select(matches("(.+)_(.*)_(.*)"))              # Selecciona las columnas cuyos nombres coinciden con el patrón de expresión regular, usando explícitamente la función 'select' de dplyr
+```
+
+```{r}
+dataset = dataset %>%                               # Pasa el dataset original a la siguiente función utilizando el operador pipe
+  mutate(speed = (distance * 1.605)/(air_time/60)) %>% # Crea una nueva columna 'speed' calculando la velocidad en km/h
+  mutate(distance_km = distance * 1.605)             # Crea una nueva columna 'distance_km' convirtiendo 'distance' de millas a kilómetros
+dataset                                              # Muestra el dataset modificado con las nuevas columnas
+```
+
+```{r}
+dataset = dataset %>%  # Pasa el dataset original a la siguiente función utilizando el operador pipe
+  mutate(speed = (distance * 1.605)/(air_time/60), distance_km = distance * 1.605)  # Crea las columnas 'speed' y 'distance_km' en una sola operación
+dataset  # Muestra el dataset modificado con las nuevas columnas
+```
+
+```{r}
+dataset$speed_v2 = (dataset$distance * 1.605)/(dataset$air_time/60)  # Crea una nueva columna 'speed_v2' calculando la velocidad en km/h
+dataset  # Muestra el dataset modificado con la nueva columna 'speed_v2'
+```
+
+```{r}
+dataset %>%                                    # Pasa el dataset original a la siguiente función utilizando el operador pipe
+  transmute(speed = (distance * 1.605))         # Crea una nueva columna 'speed' con la distancia convertida a kilómetros (multiplicando por 1.605)
+dataset
+```
+
+```{r}
+dataset %>%                                       # Pasa el dataset original a la siguiente función utilizando el operador pipe
+  summarise(promedio_speed = mean(speed, na.rm = T))  # Calcula el promedio de la columna 'speed', ignorando los valores NA (faltantes)
+```
+
+```{r}
+dataset %>%                                     # Pasa el dataset original a la siguiente función utilizando el operador pipe
+  filter(!is.na(speed)) %>%                      # Filtra las filas donde 'speed' no es NA (es decir, elimina las filas con valores faltantes en 'speed')
+  summarise(promedio_speed = mean(speed, distance_total = sum(distance)))  # Calcula el promedio de 'speed' y la suma de 'distance'
+```
+
+```{r}
+df_grp_origin = dataset %>%
+  group_by(origin)
+df_grp_origin
+```
+
+```{r}
+str(df_grp_origin)
+```
+
+```{r}
+dataset %>%                                      # Pasa el dataset original a la siguiente función utilizando el operador pipe
+  group_by(origin) %>%                           # Agrupa las filas por la columna 'origin' (origen del vuelo)
+  summarise(                                     # Resume los datos calculando varias estadísticas para cada grupo
+    tiempo_promedio_vuelo = mean(air_time, na.rm = T),  # Calcula el promedio de 'air_time' (tiempo de vuelo) para cada grupo, ignorando los valores NA
+    distancia_promedio = mean(distance),              # Calcula el promedio de 'distance' (distancia) para cada grupo
+    cantidad_vuelos = n()                            # Calcula la cantidad de vuelos en cada grupo (número de filas por grupo)
+  )
+```
+
+```{r}
+dataset %>%
+  group_by(origin) %>%
+  summarise(tiempo_promedio_vuelo = mean(air_time, na.rm = T), distancia_promedio = mean(distance))
+```
+
+```{r}
+dataset %>%                                        # Pasa el dataset original a la siguiente función utilizando el operador pipe
+  filter(!is.na(tailnum)) %>%                       # Filtra las filas donde la columna 'tailnum' no sea NA (eliminando vuelos sin número de avión)
+  group_by(tailnum) %>%                            # Agrupa las filas por la columna 'tailnum' (número de avión)
+  summarise(distancia_total = sum(distance)) %>%   # Calcula la suma total de la distancia por cada avión (por cada 'tailnum')
+  arrange(-distancia_total) %>%                    # Ordena el dataset de manera descendente según la columna 'distancia_total'
+  top_n(10, distancia_total)                        # Selecciona los 10 aviones con mayor distancia total
+```
+
+```{r}
+dataset
+```
+
+```{r}
+flights
+```
+
+```{r}
+planes
+```
+
+```{r}
+airports
+```
+
+```{r}
+flights %>%                                     # Pasa el dataset 'flights' a la siguiente función utilizando el operador pipe
+  inner_join(planes, by = "tailnum") %>%         # Realiza una unión interna con el dataset 'planes' usando 'tailnum' como clave de unión
+  inner_join(airports, by = c('origin' = 'faa')) %>% # Realiza una unión interna con el dataset 'airports' usando 'origin' y 'faa' como claves de unión
+  inner_join(airlines, by = 'carrier')           # Realiza una unión interna con el dataset 'airlines' usando 'carrier' como clave de unión
+```
+
+```{r}
+dataset %>%                                              # Pasa el dataset original a la siguiente función utilizando el operador pipe
+  filter(!is.na(air_time)) %>%                           # Filtra las filas donde la columna 'air_time' no es NA (eliminando los vuelos con 'NA' en 'air_time')
+  ggplot(aes(x = air_time, y = after_stat(density))) +   # Inicializa un gráfico de ggplot donde 'x' es 'air_time' y 'y' es la densidad
+  geom_density(col = "steel blue", lwd = 0.5) +          # Añade una curva de densidad con color azul acero y grosor de línea 0.5
+  geom_histogram(data = dataset, aes(x = air_time), fill="red", alpha = 0.3, bins = 50) +  # Añade un histograma sobre el gráfico, con las barras rojas, transparencia 0.3, y 50 bins
+  xlab("Tiempo en vuelo") +                              # Añade etiqueta al eje X: "Tiempo en vuelo"
+  ylab("Densidad") +                                    # Añade etiqueta al eje Y: "Densidad"
+  ggtitle("Densidad de Tiempo en vuelo") +               # Añade título al gráfico: "Densidad de Tiempo en vuelo"
+  theme_classic()                                       # Aplica el tema clásico (limpio y sencillo) al gráfico
+```
+
+# Clase 05/06
 ```{r}
 ```
 
@@ -292,17 +529,77 @@ library(ggplot2)
 ```{r}
 ```
 
+```{r}
+```
 
+```{r}
+```
 
+```{r}
+```
 
+```{r}
+```
 
+```{r}
+```
 
+```{r}
+```
 
+```{r}
+```
 
+```{r}
+```
 
+```{r}
+```
 
+```{r}
+```
 
+```{r}
+```
 
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
 
 
 
