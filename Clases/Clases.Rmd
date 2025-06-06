@@ -358,7 +358,7 @@ unique(dataset$origin)
 
 ```{r}
 dataset %>%                           # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  filter(!is.na(dep_delay))             # Filtra las filas donde 'dep_delay' (retraso de salida) no sea NA (valor ausente)
+  filter(!is.na(dep_delay)) %>%          # Filtra las filas donde 'dep_delay' (retraso de salida) no sea NA (valor ausente)
   sample_frac(0.1, replace = F)        # Selecciona una muestra aleatoria del 10% (0.1) de las filas sin reemplazo
 ```
 
@@ -378,7 +378,7 @@ dataset[2:51,]
 
 ```{r}
 dataset %>%                        # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  top_n(10, air_time)               # Selecciona las 10 filas con los mayores valores de 'air_time' (duración de vuelo)
+  top_n(10, air_time) %>%            # Selecciona las 10 filas con los mayores valores de 'air_time' (duración de vuelo)
   arrange(-air_time)                # Ordena el dataset de manera descendente por la columna 'air_time'
 ```
 
@@ -517,16 +517,95 @@ dataset %>%                                              # Pasa el dataset origi
 ```
 
 # Clase 05/06
-```{r}
-```
+
+## Ejercicio 1: Lanzamiento de un dado
+
+Enunciado:
+Supon que lanzas un dado justo de 6 caras. Define el espacio muestral y calcula la siguientes probabilidades
+a) que salga número par
+b) que salga un número mayor a 4
+c) que salga un numero par y mayor a 4
 
 ```{r}
+# espacio muestral
+dado <- 1:6
+
+# Eventos
+Evento_par <- dado[dado %% 2 == 0]
+Evento_mayor4 <- dado[dado > 4]
+Evento_ambos <- intersect(Evento_par, Evento_mayor4)
+
+# Probabilidades
+Prob_par <- length(Evento_par) / length(dado)
+Prob_mayor4 <- length(Evento_mayor4) / length(dado)
+Prob_ambos <- length(Evento_ambos) / length(dado)
+
+print(c(Prob_par, Prob_mayor4, Prob_ambos))
 ```
 
-```{r}
-```
+## Ejercicio 2: Moneda Doble
+
+Objetivo: Simular y calcular probabilidades
+Enunciado: 
+Se lanza dos veces una moneda justa. Simula el experimento 1000 veces y calcula:
+a) La probabilidad de que ambas salidas sean caras.
+b) La probabilidad de que al menos una sea cara.
 
 ```{r}
+set.seed(123)
+lanzamientos <- replicate(1000, sample(c("c", "s"), 2, replace = T))
+
+ambas_caras <- apply(lanzamientos, 2, function(x) all(x == "c"))
+al_menos_una_cara <- apply(lanzamientos, 2, function(x) "c" %in% x)
+
+Prob_ambas_caras <- mean(ambas_caras)
+Prob_al_mennos_una_cara <- mean(al_menos_una_cara)
+
+print(c(Prob_ambas_caras, Prob_al_mennos_una_cara))
+```
+
+## Ejercicio 3: Probabilidad condicional
+
+Enunciado:
+De una bolsa con 3 bolas rojas y 2 bolas azules, se extraen 2 bolas sin reemplazo. Calcula:
+a) La probabilidad de que la segunda bola sea roja dado que la primera fue roja.
+
+```{r}
+set.seed(456)
+resultados <- replicate(10000, sample(c("R", "R", "R", "A", "A"), 2, replace = F))
+
+Primera_roja <- resultados[1,] == "R"
+Segunda_roja <- resultados[2,] == "R"
+
+# Probabilidad condicional
+Prob_Condicional <- mean(Segunda_roja[Primera_roja])
+
+print(Prob_Condicional)
+```
+
+## Ejercicio 4: Independencia
+
+Enunciado:
+Lanza dos dados. Define los eventos:
+a) La suma es par
+B) El primer dado es par
+¿Son independientes los eventos A y B?
+
+```{r}
+dado1 <- sample(1:6, 1000, replace = T)
+dado2 <- sample(1:6, 1000, replace = T)
+
+Evento_A <- (dado1 + dado2) %% 2 == 0
+Evento_B <- dado1 %% 2 == 0
+
+Prob_A <- mean(Evento_A)
+Prob_B <- mean(Evento_B)
+Prob_AyB <- mean(Evento_A & Evento_B)
+
+# Verificar Independencia
+Independencia <- Prob_AyB == Prob_A * Prob_B
+
+print(list(P_A = Prob_A, P_B = Prob_B, P_AyB = Prob_AyB, Independientes = Independencia))
 ```
 
 ```{r}
