@@ -1,0 +1,513 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Tarea\_1},
+  pdfauthor={Juan\_Urbina},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Tarea\_1}
+\author{Juan\_Urbina}
+\date{2025-06-06}
+
+\begin{document}
+\maketitle
+
+\section{Parte 1}\label{parte-1}
+
+Escriba el código de R necesario para resolver los siguientes incisos
+trate de usar la menor cantidad de líneas posible.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  ¿Cómo generaría un arreglo aleatorio de 250 elementos con los colores
+  primarios?
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ejer\_1 }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"rojo"}\NormalTok{, }\StringTok{"azul"}\NormalTok{, }\StringTok{"amarillo"}\NormalTok{), }\DecValTok{250}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{)}
+\NormalTok{ejer\_1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] "rojo"     "amarillo" "rojo"     "rojo"     "rojo"     "rojo"    
+##   [7] "azul"     "amarillo" "rojo"     "amarillo" "azul"     "amarillo"
+##  [13] "azul"     "rojo"     "rojo"     "rojo"     "amarillo" "amarillo"
+##  [19] "azul"     "azul"     "amarillo" "rojo"     "rojo"     "azul"    
+##  [25] "rojo"     "azul"     "amarillo" "rojo"     "azul"     "amarillo"
+##  [31] "rojo"     "azul"     "azul"     "rojo"     "amarillo" "azul"    
+##  [37] "rojo"     "amarillo" "azul"     "azul"     "rojo"     "amarillo"
+##  [43] "azul"     "amarillo" "rojo"     "azul"     "azul"     "amarillo"
+##  [49] "azul"     "amarillo" "azul"     "azul"     "rojo"     "azul"    
+##  [55] "azul"     "azul"     "azul"     "amarillo" "azul"     "azul"    
+##  [61] "rojo"     "azul"     "rojo"     "rojo"     "amarillo" "amarillo"
+##  [67] "azul"     "azul"     "azul"     "rojo"     "amarillo" "azul"    
+##  [73] "azul"     "rojo"     "azul"     "amarillo" "rojo"     "amarillo"
+##  [79] "azul"     "amarillo" "amarillo" "azul"     "rojo"     "rojo"    
+##  [85] "rojo"     "azul"     "amarillo" "amarillo" "amarillo" "rojo"    
+##  [91] "azul"     "rojo"     "amarillo" "amarillo" "amarillo" "rojo"    
+##  [97] "azul"     "amarillo" "azul"     "rojo"     "amarillo" "rojo"    
+## [103] "amarillo" "azul"     "amarillo" "rojo"     "rojo"     "rojo"    
+## [109] "azul"     "azul"     "azul"     "rojo"     "amarillo" "azul"    
+## [115] "amarillo" "rojo"     "rojo"     "rojo"     "azul"     "amarillo"
+## [121] "azul"     "rojo"     "amarillo" "rojo"     "amarillo" "amarillo"
+## [127] "amarillo" "azul"     "rojo"     "azul"     "azul"     "azul"    
+## [133] "amarillo" "amarillo" "azul"     "rojo"     "amarillo" "azul"    
+## [139] "azul"     "amarillo" "rojo"     "azul"     "amarillo" "azul"    
+## [145] "amarillo" "rojo"     "azul"     "rojo"     "rojo"     "azul"    
+## [151] "rojo"     "rojo"     "azul"     "azul"     "rojo"     "azul"    
+## [157] "rojo"     "rojo"     "rojo"     "amarillo" "amarillo" "rojo"    
+## [163] "azul"     "amarillo" "azul"     "azul"     "azul"     "azul"    
+## [169] "rojo"     "azul"     "amarillo" "rojo"     "rojo"     "rojo"    
+## [175] "rojo"     "azul"     "rojo"     "azul"     "azul"     "amarillo"
+## [181] "rojo"     "amarillo" "rojo"     "amarillo" "amarillo" "amarillo"
+## [187] "amarillo" "azul"     "azul"     "rojo"     "amarillo" "azul"    
+## [193] "amarillo" "rojo"     "amarillo" "azul"     "azul"     "azul"    
+## [199] "rojo"     "rojo"     "azul"     "azul"     "amarillo" "rojo"    
+## [205] "rojo"     "azul"     "amarillo" "rojo"     "azul"     "azul"    
+## [211] "azul"     "azul"     "azul"     "rojo"     "amarillo" "amarillo"
+## [217] "amarillo" "rojo"     "azul"     "azul"     "azul"     "amarillo"
+## [223] "amarillo" "amarillo" "amarillo" "azul"     "amarillo" "azul"    
+## [229] "amarillo" "azul"     "amarillo" "amarillo" "amarillo" "amarillo"
+## [235] "rojo"     "amarillo" "azul"     "azul"     "rojo"     "amarillo"
+## [241] "azul"     "azul"     "azul"     "amarillo" "amarillo" "azul"    
+## [247] "amarillo" "azul"     "azul"     "amarillo"
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Dado un arreglo de 120000 elementos de números enteros entre 40 y 70,
+  ¿Cómo haría para obtener la desviación estándar de aquellos números
+  que son mayores a 55 y menores a 64?
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ejer\_2 }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(}\FunctionTok{sample}\NormalTok{(}\DecValTok{40}\SpecialCharTok{:}\DecValTok{70}\NormalTok{, }\DecValTok{120000}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{)[}\FunctionTok{sample}\NormalTok{(}\DecValTok{40}\SpecialCharTok{:}\DecValTok{70}\NormalTok{, }\DecValTok{120000}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\textgreater{}} \DecValTok{55} \SpecialCharTok{\&} \FunctionTok{sample}\NormalTok{(}\DecValTok{40}\SpecialCharTok{:}\DecValTok{70}\NormalTok{, }\DecValTok{120000}\NormalTok{, }\ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\textless{}} \DecValTok{64}\NormalTok{])}
+\NormalTok{ejer\_2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 8.966839
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Sabemos que para sumar vectores estos deben tener la misma longitud.
+  Sin embargo, R trabaja de manera distinta. Defina los vectores x = (1,
+  2, 3, 4, 5, 6), y = (7, 8), z = (9, 10, 11, 12).
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Calcula:
+
+  \begin{enumerate}
+  \def\labelenumii{\roman{enumii}.}
+  \tightlist
+  \item
+    x + x
+  \item
+    x + y.
+  \item
+    Responda ¿Qué ha hecho R?
+  \end{enumerate}
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\DecValTok{6}
+\NormalTok{y }\OtherTok{\textless{}{-}} \DecValTok{7}\SpecialCharTok{:}\DecValTok{8}\NormalTok{; z }\OtherTok{\textless{}{-}} \DecValTok{9}\SpecialCharTok{:}\DecValTok{12}
+
+\CommentTok{\# Parte (i)}
+\NormalTok{x }\SpecialCharTok{+}\NormalTok{ x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  2  4  6  8 10 12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Parte (ii)}
+\NormalTok{x }\SpecialCharTok{+}\NormalTok{ y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  8 10 10 12 12 14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Parte(iii)}
+\DocumentationTok{\#\# R recicla los valores de \textquotesingle{}y\textquotesingle{} para completar la longitud de \textquotesingle{}x\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Si b \textless- list(a=1:10, c=``Hola'', d=``XX''), escriba una
+  expresión en R que devuelva todos los elementos de la lista excepto
+  los elementos 2,4,6,7,8 del vector a.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{b }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\AttributeTok{a=}\DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{, }\AttributeTok{c=}\StringTok{"Hola"}\NormalTok{, }\AttributeTok{d=}\StringTok{"XX"}\NormalTok{)}
+
+\NormalTok{b}\SpecialCharTok{$}\NormalTok{a[}\SpecialCharTok{!}\DecValTok{1}\SpecialCharTok{:}\DecValTok{10} \SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  1  3  5  9 10
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Suponga que se almacena en una variable un arreglo con todos los
+  números de carnet de los estudiantes de la Escuela de Ciencias y
+  Sistemas en forma de string, los carnets tienen al inicio cuatro
+  caracteres que identifican el año en el que la persona entró a la
+  universidad, por ejemplo: 201900452 hacer referencia a una persona que
+  ingreso en el año 2019, 200600987 hace referencia a una persona que
+  ingreso que el año 2006.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  ¿Cómo haría para contar la cantidad de alumnos por año?
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{carnets }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"201900452"}\NormalTok{, }\StringTok{"201800321"}\NormalTok{, }\StringTok{"201900987"}\NormalTok{, }\StringTok{"200600123"}\NormalTok{, }\StringTok{"200600987"}\NormalTok{, }
+             \StringTok{"201700111"}\NormalTok{, }\StringTok{"201800222"}\NormalTok{, }\StringTok{"201900333"}\NormalTok{, }\StringTok{"202000555"}\NormalTok{, }\StringTok{"202000666"}\NormalTok{)}
+
+\FunctionTok{table}\NormalTok{(}\FunctionTok{substr}\NormalTok{(carnets, }\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## 2006 2017 2018 2019 2020 
+##    2    1    2    3    2
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Dada la variable string \textless- ``Hola Mundo'', escriba una
+  instrucción en R que devuelva la siguiente salida: {[}{[}1{]}{]}
+  {[}1{]} ``Hola'' {[}{[}2{]}{]} {[}1{]} ``Mundo''.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{string }\OtherTok{\textless{}{-}} \FunctionTok{strsplit}\NormalTok{(}\StringTok{"Hola Mundo"}\NormalTok{, }\StringTok{" "}\NormalTok{)}
+
+\NormalTok{string}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [[1]]
+## [1] "Hola"  "Mundo"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{string[[}\DecValTok{1}\NormalTok{]][}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Hola"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{string[[}\DecValTok{1}\NormalTok{]][}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Mundo"
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Utilizando el dataset flights de la librería nycflights23 (recordando:
+  dataset\textless- flights), realizar lo siguiente:
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Mostrar una gráfica de barras de manera decreciente con la cantidad de
+  vuelo por aerolínea (columna ``carrier'')
+\item
+  Mostrar una gráfica de líneas de cantidad de vuelos por mes (columna
+  ``month'').
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(nycflights13)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Adjuntando el paquete: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\CommentTok{\# 7.a}
+\NormalTok{flights }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(carrier, }\AttributeTok{sort=}\ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\FunctionTok{reorder}\NormalTok{(carrier, }\SpecialCharTok{{-}}\NormalTok{n), }\AttributeTok{y=}\NormalTok{n)) }\SpecialCharTok{+} \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat=}\StringTok{"identity"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{\%5BMyS1\%5D_\%5B201906051\%5D_files/figure-latex/unnamed-chunk-7-1.pdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 7.b}
+\NormalTok{flights }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{count}\NormalTok{(month) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{month, }\AttributeTok{y=}\NormalTok{n)) }\SpecialCharTok{+} \FunctionTok{geom\_line}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\pandocbounded{\includegraphics[keepaspectratio]{\%5BMyS1\%5D_\%5B201906051\%5D_files/figure-latex/unnamed-chunk-8-1.pdf}}
+
+\section{Parte 2}\label{parte-2}
+
+\subsection{Ejercicio 1: Lanzamiento de dos
+dados}\label{ejercicio-1-lanzamiento-de-dos-dados}
+
+Lanza dos dados justos. Define el espacio muestral y calcula las
+siguientes probabilidades: A. Que la suma sea 7. B. Que ambos dados
+muestren el mismo número. C. Que la suma sea 7 o los dados muestren el
+mismo número.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{muestral }\OtherTok{\textless{}{-}} \FunctionTok{expand.grid}\NormalTok{(}\AttributeTok{d1 =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{, }\AttributeTok{d2 =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{)}
+\NormalTok{A }\OtherTok{\textless{}{-}} \FunctionTok{with}\NormalTok{(muestral, d1 }\SpecialCharTok{+}\NormalTok{ d2 }\SpecialCharTok{==} \DecValTok{7}\NormalTok{)}
+\NormalTok{B }\OtherTok{\textless{}{-}} \FunctionTok{with}\NormalTok{(muestral, d1 }\SpecialCharTok{==}\NormalTok{ d2)}
+\NormalTok{C }\OtherTok{\textless{}{-}}\NormalTok{ A }\SpecialCharTok{|}\NormalTok{ B}
+\FunctionTok{c}\NormalTok{(}\AttributeTok{P\_A =} \FunctionTok{mean}\NormalTok{(A), }\AttributeTok{P\_B =} \FunctionTok{mean}\NormalTok{(B), }\AttributeTok{P\_C =} \FunctionTok{mean}\NormalTok{(C))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       P_A       P_B       P_C 
+## 0.1666667 0.1666667 0.3333333
+\end{verbatim}
+
+\subsection{Ejercicio 2: Lanzamiento de tres
+monedas}\label{ejercicio-2-lanzamiento-de-tres-monedas}
+
+Lanza tres monedas justas. Simula este experimento 1000 veces y calcula:
+A. La probabilidad de que salgan exactamente dos caras. B. La
+probabilidad de que al menos una sea sello. C. La probabilidad de que
+todas sean iguales.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1}\NormalTok{)}
+
+\NormalTok{monedas }\OtherTok{\textless{}{-}} \FunctionTok{replicate}\NormalTok{(}\DecValTok{1000}\NormalTok{, }\FunctionTok{sample}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"c"}\NormalTok{, }\StringTok{"s"}\NormalTok{), }\DecValTok{3}\NormalTok{, }\AttributeTok{replace=}\ConstantTok{TRUE}\NormalTok{))}
+
+\NormalTok{caras }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(monedas, }\DecValTok{2}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{sum}\NormalTok{(x }\SpecialCharTok{==} \StringTok{"c"}\NormalTok{))}
+
+\FunctionTok{c}\NormalTok{(}
+  \AttributeTok{P\_dos\_caras =} \FunctionTok{mean}\NormalTok{(caras }\SpecialCharTok{==} \DecValTok{2}\NormalTok{),}
+  \AttributeTok{P\_al\_menos\_una\_sello =} \FunctionTok{mean}\NormalTok{(}\FunctionTok{apply}\NormalTok{(monedas, }\DecValTok{2}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(x) }\StringTok{"s"} \SpecialCharTok{\%in\%}\NormalTok{ x)),}
+  \AttributeTok{P\_todas\_iguales =} \FunctionTok{mean}\NormalTok{(}\FunctionTok{apply}\NormalTok{(monedas, }\DecValTok{2}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(x)) }\SpecialCharTok{==} \DecValTok{1}\NormalTok{))}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          P_dos_caras P_al_menos_una_sello      P_todas_iguales 
+##                0.373                0.878                0.242
+\end{verbatim}
+
+\subsection{Ejercicio 3: Se extrae una carta de una baraja estándar (52
+cartas).
+Calcular:}\label{ejercicio-3-se-extrae-una-carta-de-una-baraja-estuxe1ndar-52-cartas.-calcular}
+
+A. A: la carta es de corazón. B. B: la carta es una figura (J, Q o K).
+C. ¿Son independientes los eventos A y B?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{baraja }\OtherTok{\textless{}{-}} \FunctionTok{expand.grid}\NormalTok{(}\AttributeTok{valor=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{, }\StringTok{"J"}\NormalTok{, }\StringTok{"Q"}\NormalTok{, }\StringTok{"K"}\NormalTok{), }\AttributeTok{palo=}\FunctionTok{c}\NormalTok{(}\StringTok{"Corazon"}\NormalTok{, }\StringTok{"Diamante"}\NormalTok{, }\StringTok{"Trebol"}\NormalTok{, }\StringTok{"Espada"}\NormalTok{))}
+
+\NormalTok{A }\OtherTok{\textless{}{-}}\NormalTok{ baraja}\SpecialCharTok{$}\NormalTok{palo }\SpecialCharTok{==} \StringTok{"Corazon"}
+\NormalTok{B }\OtherTok{\textless{}{-}}\NormalTok{ baraja}\SpecialCharTok{$}\NormalTok{valor }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"J"}\NormalTok{, }\StringTok{"Q"}\NormalTok{, }\StringTok{"K"}\NormalTok{)}
+
+\NormalTok{independientes }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(A }\SpecialCharTok{\&}\NormalTok{ B) }\SpecialCharTok{==} \FunctionTok{mean}\NormalTok{(A) }\SpecialCharTok{*} \FunctionTok{mean}\NormalTok{(B)}
+
+\FunctionTok{list}\NormalTok{(}\AttributeTok{P\_A =} \FunctionTok{mean}\NormalTok{(A), }\AttributeTok{P\_B =} \FunctionTok{mean}\NormalTok{(B), }\AttributeTok{Independientes =}\NormalTok{ independientes)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $P_A
+## [1] 0.25
+## 
+## $P_B
+## [1] 0.2307692
+## 
+## $Independientes
+## [1] TRUE
+\end{verbatim}
+
+\end{document}
