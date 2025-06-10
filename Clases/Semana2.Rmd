@@ -1,0 +1,257 @@
+---
+title: "Clases Semana 2"
+author: "Juan_Urbina"
+date: "2025-06-09"
+output: html_document
+---
+
+# Clase 09/06
+## Conceptos Básicos
+### rexp(n, rate)
+
+Descripción: Genera n valores aleatorios de una distribución exponencial.
+Parámetros:
+  - n: Número de observaciones.
+  - rate: Tasa λ (inversa del valor esperado).
+
+### rgama (n, shape, rate)
+
+Descripción: Genera n valores de una distribución gamma.
+Parámetros:
+  - n: Número de observaciones.
+  - shape: Parámetro de forma К.
+  - rate: Parámetro de tasa λ = 1/θ.
+
+### rweilbull (n, shape, scale)
+
+Descripción: Genera n valores de una distribución weibull.
+Parámetros:
+  - n: Número de observaciones.
+  - shape: Parámetro de forma.
+  - scale: Parámetro escala.  
+
+### hist (x, probability = TRUE)
+
+Descripción: Crea un histograma de los datos x.
+Parámetros:
+  - probability = TRUE: El eje vertical muestra densidad en lugar de frecuencia.
+
+### curve (func, add = TRUE)
+
+Descripción: Dibuja una curba de una función matemática sobre un gráfico.
+Parámetros:
+  - add = TRUE: Superpone la curva sobre el gráfico existente.
+  
+### mean (x) & sd(x)
+
+Descripción: Calculan la media y desviación estándar de un vector x.
+mean(): Promedio.
+sd(): Medida de dispersión.
+
+### t.test(x)
+
+Descripción: Realiza una prueba t para estimar si la media poblacional de los datos x difiere de un valor.
+Resultado relevante:
+  - t.test(x)$conf.int: Intervalo de confianza del 95% por defecto para la media.
+  
+### cor(x, y)
+
+Descripción: Calcula el coeficiente de correlación de Pearson entre "x" y "y".
+Valores típicos:
+  - Cercano a 1: Fuerte correlación positiva.
+  - Cercano a 0: No hay correlación.
+  - Cercano a -1: Fuerte correlación negativa.
+
+### plot(x, y)
+
+Descripción: Crea un gráfico de dispersión entre dos variables numéricas.
+ 
+### library(triangle) & rtriaangle(n, a, b, c)
+
+Descripición: Utiliza la librería triengle par simular variables con distribución triangular.
+Parámetros:
+  - n: Número de observaciones.
+  - a: Valor mínimo (optimista).
+  - b: Valor máximo (pesimista).
+  - c: Modo (más probable).
+
+### ks.test(x, "pweibull", shape, scale)
+
+Descripción: Realiza una prueba de kolmogorov-swirnov para comparar la muestra x con una distribución teórica (weibull, en este caso).
+Resultado importante:
+  - p-value: Probabilidad de observar diferencias tan grandes si la muestra realmente viene de esa distribución.
+  
+### ¿Qué es el p-value?
+
+Es la probabilidad de obtener un resultado tan externo como el observado, si la hipótesis nula es verdadera.
+  - p < 0.05: Evidencia significativa contra la hipótesis nula.
+  - p >= 0.05: No hay evidencia suficiente para rechazar la hipótesis nula.
+
+### ¿Qué es t.test?
+
+Es una función para realizar una prueba t de student.
+Sirve para:
+  - Comparar la media de una muestra con un valor específico.
+  - Comparar medias de dos muestras (cuando se dan dos vectores).
+  - Obtener un intervalo de confianza para la media.
+
+## 1. Visualización y ajuste de distribuciones comunes
+
+Histograma y comparación con distribuciones teóricas
+
+```{r}
+set.seed(123)
+muestra <- rexp(1000, rate = 0.5)
+
+hist(muestra, breaks = 10, probability = T, main = "Histograma vs. Exponencial", col = "Lightblue", xlab = "Valores")
+
+curve(dexp(x, rate = 0.5), add = T, col = "red", lwd = 2)
+
+legend("topright", legend = "Densidad Exponencial", col = "red", lwd = 2)
+```
+
+## 2. Evaluación de independencia (Correlación)
+
+```{r}
+set.seed(456)
+x <- rgamma(100, shape = 2)
+y <- x + rnorm(100, mean = 0, sd = 0.5)
+
+plot(x, y, main = "Relación entre 'X' y 'Y'")
+
+# Valor cercano a 1 indica correlación positiva fuerte
+cor(x, y)
+```
+
+## 3. Estimación de parámetros
+
+```{r}
+set.seed(789)
+datos <- rweibull(100, shape = 2, scale = 1)
+
+media <- mean(datos)
+desviacion <- sd(datos)
+media
+desviacion
+```
+
+```{r}
+t.test(datos)$conf.int
+```
+
+## 4. Distribución triangular o beta en ausencia de datos reales
+
+```{r}
+library(triangle)
+
+x <- seq(2, 10, length.out = 100)
+plot(x, dtriangle(x, a = 2, b = 10, c = 6), type = "l", col = "blue", main = "Distribución Triangular", ylab = "Densidad", xlab = "Valor")
+```
+
+## 5. Comparación y prueba de bondad de ajuste (Kolnogorov-snirnov)
+
+```{r}
+set.seed(101)
+datos <- rweibull(100, shape = 2, scale = 1)
+
+ks.test(datos, "pweibull", shape = 2, scale = 1)
+```
+
+## Ejercicios
+
+### Ejercicio 1: Visualización y elección de distribución
+
+Simula 150 observaciones usando una distribución exponencial con rate = 0.3.
+Realiza un histograma con densidad.
+Superpón una curva teórica de densidad exponencial.
+¿La forma sugiere que es exponencial?
+
+```{r}
+x <- rexp(150, rate = 0.3)
+hist(x, probability = T, main = "Histograma Exponencial", col = "lightblue")
+curve(dexp(x, rate = 0.3), add = T, col = "red", lwd = 2)
+
+# ¿La forma sugiere que es exponencial?: Si
+```
+
+## Ejercicio 2: Estimación de parámetros
+
+Toma una muestra de 100 observaciones de una distribución gamma con shape = 3 y rate = 0.5.
+Calcula la media y desviación estándar.
+Estima un intervalo de confianza del 95% para la media.
+
+```{r}
+x <- rgamma(100, shape = 3, rate = 0.5)
+mean(x); sd(x)
+t.test(x)$conf.int
+```
+
+## Ejercicio 3: Evaluación de independencia
+
+Simula dos vectores "A" y "B" del tamaño 100, tal que B = A + error, con error distribuido normalmente.
+Calcula la correlación entre A y B.
+Gráfica la relación entre ambas variables.
+
+```{r}
+A <- rgamma(100, shape = 3, rate = 0.5)
+B <- A + rnorm(100, mean = 5, sd = 1)
+
+plot(A, B, main = "Relación entre X & Y")
+cor(A, B)
+```
+
+## Ejercicio 4: Distribución en ausencia de datos
+
+Supón que un experto estima que el tiempo para completar una tarea está entre 4 y 12 minutos, con una estimación más probable de 7 minutos.
+Define la distribución triangular.
+Grafica su densidad.
+Simula 1000 observaciones y calcula su media.
+
+```{r}
+library(triangle)
+x <- rtriangle(1000, a = 4, b = 12, c = 7)
+mean(x)
+plot(density(x), main = "Densidad Triangular", col = "blue")
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+```

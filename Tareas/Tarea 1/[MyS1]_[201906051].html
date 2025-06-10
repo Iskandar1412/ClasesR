@@ -9,9 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Juan_Urbina" />
 
+<meta name="date" content="2025-06-06" />
 
-<title>Clases.knit</title>
+<title>Tarea_1</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -348,659 +350,150 @@ display: none;
 
 
 
+<h1 class="title toc-ignore">Tarea_1</h1>
+<h4 class="author">Juan_Urbina</h4>
+<h4 class="date">2025-06-06</h4>
 
 </div>
 
 
-<div id="clase-0206" class="section level1">
-<h1>Clase 02/06</h1>
-</div>
-<div id="introducción-r" class="section level1">
-<h1>Introducción R</h1>
-<div id="entero---3" class="section level2">
-<h2>entero &lt;- 3</h2>
-</div>
-<div id="decimal---1.35" class="section level2">
-<h2>decimal &lt;- 1.35</h2>
-</div>
-<div id="cadena---asdffa" class="section level2">
-<h2>cadena &lt;- “asdffa”</h2>
-</div>
-<div id="verdadero---true" class="section level2">
-<h2>verdadero &lt;- TRUE</h2>
-</div>
-<div id="falso---false" class="section level2">
-<h2>Falso &lt;- FALSE</h2>
-<pre class="r"><code># Declaración
-entero = 5
-decimal &lt;- 3.14
-cadena = &quot;hola mundo&quot;
-verdadero &lt;- TRUE
-falso &lt;- F
-# Asignación
-entero</code></pre>
-<pre><code>## [1] 5</code></pre>
-<pre class="r"><code>decimal</code></pre>
-<pre><code>## [1] 3.14</code></pre>
-<pre class="r"><code>cadena</code></pre>
-<pre><code>## [1] &quot;hola mundo&quot;</code></pre>
-<pre class="r"><code>verdadero</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code>falso</code></pre>
-<pre><code>## [1] FALSE</code></pre>
-</div>
-<div id="estructuras---c-c-es-colección" class="section level2">
-<h2>Estructuras -&gt; c() ==&gt; c es colección</h2>
-<pre class="r"><code>numeros &lt;- c(1, 2, 3, 4, 5)
-numeros</code></pre>
-<pre><code>## [1] 1 2 3 4 5</code></pre>
-<pre class="r"><code>letras &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
-letras</code></pre>
-<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
-<pre class="r"><code>logicos &lt;- c(TRUE, FALSE, TRUE)
-logicos</code></pre>
-<pre><code>## [1]  TRUE FALSE  TRUE</code></pre>
-<pre class="r"><code>mixto &lt;- c(1, &quot;a&quot;, FALSE)
-mixto</code></pre>
-<pre><code>## [1] &quot;1&quot;     &quot;a&quot;     &quot;FALSE&quot;</code></pre>
-</div>
-<div id="impresión" class="section level2">
-<h2>Impresión</h2>
-<pre class="r"><code>print(mixto[0]) # character(0)</code></pre>
-<pre><code>## character(0)</code></pre>
-<pre class="r"><code>print(mixto[1]) # 1</code></pre>
-<pre><code>## [1] &quot;1&quot;</code></pre>
-<pre class="r"><code>print(mixto[2]) # a</code></pre>
-<pre><code>## [1] &quot;a&quot;</code></pre>
-<pre class="r"><code>print(mixto[3]) # FALSE</code></pre>
-<pre><code>## [1] &quot;FALSE&quot;</code></pre>
-</div>
-<div id="listas" class="section level2">
-<h2>Listas</h2>
-<pre class="r"><code>mi_lista &lt;- list(numeros = numeros, letras = letras, logicos = logicos)
-mi_lista</code></pre>
-<pre><code>## $numeros
-## [1] 1 2 3 4 5
-## 
-## $letras
-## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;
-## 
-## $logicos
-## [1]  TRUE FALSE  TRUE</code></pre>
-<div id="acceso-a-listas" class="section level3">
-<h3>Acceso a listas</h3>
-<pre class="r"><code>mi_lista$numeros</code></pre>
-<pre><code>## [1] 1 2 3 4 5</code></pre>
-<pre class="r"><code>mi_lista$numeros[1]</code></pre>
-<pre><code>## [1] 1</code></pre>
-<pre class="r"><code>mi_lista$letras</code></pre>
-<pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
-</div>
-</div>
-<div id="matrices" class="section level2">
-<h2>Matrices</h2>
-<pre class="r"><code>matriz &lt;- matrix(1:9, nrow = 3, ncol = 3)
-matriz2 &lt;- matrix(c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;), nrow = 3, ncol = 3)
-matriz</code></pre>
-<pre><code>##      [,1] [,2] [,3]
-## [1,]    1    4    7
-## [2,]    2    5    8
-## [3,]    3    6    9</code></pre>
-<pre class="r"><code>matriz[1] # 1</code></pre>
-<pre><code>## [1] 1</code></pre>
-<pre class="r"><code>matriz[1,] # 1 4 7</code></pre>
-<pre><code>## [1] 1 4 7</code></pre>
-<pre class="r"><code>matriz[1,3] # 7</code></pre>
-<pre><code>## [1] 7</code></pre>
-<pre class="r"><code>matriz[,2] # 4 5 6</code></pre>
-<pre><code>## [1] 4 5 6</code></pre>
-</div>
-<div id="dataframes" class="section level2">
-<h2>Dataframes</h2>
-<pre class="r"><code>data_frame &lt;- data.frame(
-  nombre = c(&quot;Ana&quot;, &quot;Luis&quot;, &quot;Pedro&quot;),
-  edad = c(22, 23, 25),
-  aprobado = c(TRUE, FALSE, TRUE)
-)
-data_frame</code></pre>
-<pre><code>##   nombre edad aprobado
-## 1    Ana   22     TRUE
-## 2   Luis   23    FALSE
-## 3  Pedro   25     TRUE</code></pre>
-<pre class="r"><code>data_frame$nombre[1] # Ana</code></pre>
-<pre><code>## [1] &quot;Ana&quot;</code></pre>
-<pre class="r"><code>data_frame$nombre[2] # Luis</code></pre>
-<pre><code>## [1] &quot;Luis&quot;</code></pre>
-<pre class="r"><code>data_frame$nombre # Ana Luis Pedro</code></pre>
-<pre><code>## [1] &quot;Ana&quot;   &quot;Luis&quot;  &quot;Pedro&quot;</code></pre>
-</div>
-<div id="factor-tambien-se-le-conoce-como-distinc" class="section level2">
-<h2>Factor (tambien se le conoce como distinc)</h2>
-<pre class="r"><code>colores &lt;- factor(c(&quot;rojo&quot;, &quot;azul&quot;, &quot;verde&quot;, &quot;rojo&quot;, &quot;azul&quot;, &quot;amarillo&quot;, &quot;rosa&quot;))
-print(colores) # poder sacar un valor</code></pre>
-<pre><code>## [1] rojo     azul     verde    rojo     azul     amarillo rosa    
-## Levels: amarillo azul rojo rosa verde</code></pre>
-<pre class="r"><code>levels(colores) # agarrar los valores poner los únicos</code></pre>
-<pre><code>## [1] &quot;amarillo&quot; &quot;azul&quot;     &quot;rojo&quot;     &quot;rosa&quot;     &quot;verde&quot;</code></pre>
-</div>
-<div id="funciones" class="section level2">
-<h2>Funciones</h2>
-<pre class="r"><code>funcion &lt;- function(x, y) {
-  resultado &lt;- x + y
-  return(resultado)
-}
+<div id="parte-1" class="section level1">
+<h1>Parte 1</h1>
+<p>Escriba el código de R necesario para resolver los siguientes incisos
+trate de usar la menor cantidad de líneas posible.</p>
+<ol style="list-style-type: decimal">
+<li>¿Cómo generaría un arreglo aleatorio de 250 elementos con los
+colores primarios?</li>
+</ol>
+<pre class="r"><code>ejer_1 &lt;- sample(c(&quot;rojo&quot;, &quot;azul&quot;, &quot;amarillo&quot;), 250, replace = TRUE)
+ejer_1</code></pre>
+<pre><code>##   [1] &quot;rojo&quot;     &quot;rojo&quot;     &quot;amarillo&quot; &quot;rojo&quot;     &quot;azul&quot;     &quot;azul&quot;    
+##   [7] &quot;azul&quot;     &quot;azul&quot;     &quot;rojo&quot;     &quot;azul&quot;     &quot;azul&quot;     &quot;azul&quot;    
+##  [13] &quot;amarillo&quot; &quot;rojo&quot;     &quot;amarillo&quot; &quot;rojo&quot;     &quot;rojo&quot;     &quot;amarillo&quot;
+##  [19] &quot;amarillo&quot; &quot;azul&quot;     &quot;rojo&quot;     &quot;rojo&quot;     &quot;azul&quot;     &quot;amarillo&quot;
+##  [25] &quot;amarillo&quot; &quot;rojo&quot;     &quot;amarillo&quot; &quot;amarillo&quot; &quot;rojo&quot;     &quot;rojo&quot;    
+##  [31] &quot;azul&quot;     &quot;azul&quot;     &quot;amarillo&quot; &quot;rojo&quot;     &quot;azul&quot;     &quot;amarillo&quot;
+##  [37] &quot;rojo&quot;     &quot;rojo&quot;     &quot;azul&quot;     &quot;rojo&quot;     &quot;rojo&quot;     &quot;amarillo&quot;
+##  [43] &quot;azul&quot;     &quot;rojo&quot;     &quot;azul&quot;     &quot;azul&quot;     &quot;rojo&quot;     &quot;azul&quot;    
+##  [49] &quot;rojo&quot;     &quot;rojo&quot;     &quot;amarillo&quot; &quot;rojo&quot;     &quot;amarillo&quot; &quot;amarillo&quot;
+##  [55] &quot;amarillo&quot; &quot;amarillo&quot; &quot;rojo&quot;     &quot;amarillo&quot; &quot;rojo&quot;     &quot;rojo&quot;    
+##  [61] &quot;azul&quot;     &quot;rojo&quot;     &quot;rojo&quot;     &quot;amarillo&quot; &quot;rojo&quot;     &quot;rojo&quot;    
+##  [67] &quot;rojo&quot;     &quot;rojo&quot;     &quot;rojo&quot;     &quot;rojo&quot;     &quot;azul&quot;     &quot;rojo&quot;    
+##  [73] &quot;rojo&quot;     &quot;rojo&quot;     &quot;azul&quot;     &quot;rojo&quot;     &quot;azul&quot;     &quot;azul&quot;    
+##  [79] &quot;amarillo&quot; &quot;azul&quot;     &quot;azul&quot;     &quot;azul&quot;     &quot;amarillo&quot; &quot;amarillo&quot;
+##  [85] &quot;amarillo&quot; &quot;azul&quot;     &quot;azul&quot;     &quot;rojo&quot;     &quot;amarillo&quot; &quot;rojo&quot;    
+##  [91] &quot;amarillo&quot; &quot;amarillo&quot; &quot;rojo&quot;     &quot;rojo&quot;     &quot;azul&quot;     &quot;rojo&quot;    
+##  [97] &quot;amarillo&quot; &quot;azul&quot;     &quot;rojo&quot;     &quot;amarillo&quot; &quot;azul&quot;     &quot;rojo&quot;    
+## [103] &quot;rojo&quot;     &quot;azul&quot;     &quot;amarillo&quot; &quot;amarillo&quot; &quot;amarillo&quot; &quot;amarillo&quot;
+## [109] &quot;azul&quot;     &quot;rojo&quot;     &quot;rojo&quot;     &quot;amarillo&quot; &quot;amarillo&quot; &quot;rojo&quot;    
+## [115] &quot;azul&quot;     &quot;azul&quot;     &quot;rojo&quot;     &quot;amarillo&quot; &quot;amarillo&quot; &quot;rojo&quot;    
+## [121] &quot;amarillo&quot; &quot;rojo&quot;     &quot;azul&quot;     &quot;rojo&quot;     &quot;amarillo&quot; &quot;amarillo&quot;
+## [127] &quot;azul&quot;     &quot;rojo&quot;     &quot;amarillo&quot; &quot;rojo&quot;     &quot;azul&quot;     &quot;azul&quot;    
+## [133] &quot;azul&quot;     &quot;amarillo&quot; &quot;azul&quot;     &quot;amarillo&quot; &quot;amarillo&quot; &quot;amarillo&quot;
+## [139] &quot;rojo&quot;     &quot;rojo&quot;     &quot;rojo&quot;     &quot;rojo&quot;     &quot;rojo&quot;     &quot;azul&quot;    
+## [145] &quot;amarillo&quot; &quot;amarillo&quot; &quot;azul&quot;     &quot;amarillo&quot; &quot;azul&quot;     &quot;rojo&quot;    
+## [151] &quot;rojo&quot;     &quot;azul&quot;     &quot;azul&quot;     &quot;amarillo&quot; &quot;amarillo&quot; &quot;azul&quot;    
+## [157] &quot;rojo&quot;     &quot;azul&quot;     &quot;rojo&quot;     &quot;azul&quot;     &quot;amarillo&quot; &quot;rojo&quot;    
+## [163] &quot;rojo&quot;     &quot;rojo&quot;     &quot;rojo&quot;     &quot;amarillo&quot; &quot;azul&quot;     &quot;rojo&quot;    
+## [169] &quot;azul&quot;     &quot;amarillo&quot; &quot;amarillo&quot; &quot;amarillo&quot; &quot;rojo&quot;     &quot;azul&quot;    
+## [175] &quot;rojo&quot;     &quot;rojo&quot;     &quot;azul&quot;     &quot;amarillo&quot; &quot;amarillo&quot; &quot;rojo&quot;    
+## [181] &quot;amarillo&quot; &quot;azul&quot;     &quot;azul&quot;     &quot;rojo&quot;     &quot;amarillo&quot; &quot;azul&quot;    
+## [187] &quot;amarillo&quot; &quot;amarillo&quot; &quot;azul&quot;     &quot;amarillo&quot; &quot;rojo&quot;     &quot;azul&quot;    
+## [193] &quot;amarillo&quot; &quot;amarillo&quot; &quot;amarillo&quot; &quot;amarillo&quot; &quot;rojo&quot;     &quot;rojo&quot;    
+## [199] &quot;azul&quot;     &quot;amarillo&quot; &quot;amarillo&quot; &quot;rojo&quot;     &quot;amarillo&quot; &quot;azul&quot;    
+## [205] &quot;amarillo&quot; &quot;amarillo&quot; &quot;rojo&quot;     &quot;amarillo&quot; &quot;azul&quot;     &quot;amarillo&quot;
+## [211] &quot;amarillo&quot; &quot;azul&quot;     &quot;rojo&quot;     &quot;rojo&quot;     &quot;azul&quot;     &quot;amarillo&quot;
+## [217] &quot;azul&quot;     &quot;rojo&quot;     &quot;amarillo&quot; &quot;rojo&quot;     &quot;amarillo&quot; &quot;azul&quot;    
+## [223] &quot;rojo&quot;     &quot;amarillo&quot; &quot;rojo&quot;     &quot;rojo&quot;     &quot;amarillo&quot; &quot;rojo&quot;    
+## [229] &quot;azul&quot;     &quot;amarillo&quot; &quot;rojo&quot;     &quot;amarillo&quot; &quot;azul&quot;     &quot;amarillo&quot;
+## [235] &quot;azul&quot;     &quot;azul&quot;     &quot;amarillo&quot; &quot;rojo&quot;     &quot;azul&quot;     &quot;rojo&quot;    
+## [241] &quot;rojo&quot;     &quot;amarillo&quot; &quot;azul&quot;     &quot;rojo&quot;     &quot;amarillo&quot; &quot;amarillo&quot;
+## [247] &quot;amarillo&quot; &quot;amarillo&quot; &quot;rojo&quot;     &quot;azul&quot;</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Dado un arreglo de 120000 elementos de números enteros entre 40 y
+70, ¿Cómo haría para obtener la desviación estándar de aquellos números
+que son mayores a 55 y menores a 64?</li>
+</ol>
+<pre class="r"><code>ejer_2 &lt;- sd(sample(40:70, 120000, TRUE)[sample(40:70, 120000, TRUE) &gt; 55 &amp; sample(40:70, 120000, TRUE) &lt; 64])
+ejer_2</code></pre>
+<pre><code>## [1] 8.961594</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Sabemos que para sumar vectores estos deben tener la misma longitud.
+Sin embargo, R trabaja de manera distinta. Defina los vectores x = (1,
+2, 3, 4, 5, 6), y = (7, 8), z = (9, 10, 11, 12).</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Calcula:
+<ol style="list-style-type: lower-roman">
+<li>x + x</li>
+<li>x + y.</li>
+<li>Responda ¿Qué ha hecho R?</li>
+</ol></li>
+</ol>
+<pre class="r"><code>x &lt;- 1:6
+y &lt;- 7:8; z &lt;- 9:12
 
-funcion(20, 5) # En caso de poner numéricos en &quot;&quot; hay que castear de suma y números no pueden ser de forma implícita</code></pre>
-<pre><code>## [1] 25</code></pre>
-</div>
-<div id="concatenación" class="section level2">
-<h2>Concatenación</h2>
-<pre class="r"><code>a = 10
-b = TRUE
-res = a - b
-res</code></pre>
-<pre><code>## [1] 9</code></pre>
-<pre class="r"><code>### Concatenar valores
-a = 10
-b = &quot;a&quot;
-paste(b, b, sep = &quot;-&quot;) # a-a</code></pre>
-<pre><code>## [1] &quot;a-a&quot;</code></pre>
-<pre class="r"><code>paste(a, b, sep = &quot;-&quot;) # 10-a</code></pre>
-<pre><code>## [1] &quot;10-a&quot;</code></pre>
-<pre class="r"><code>paste(a, b, sep = &quot;&quot;) # 10a</code></pre>
-<pre><code>## [1] &quot;10a&quot;</code></pre>
-</div>
-<div id="colecciones" class="section level2">
-<h2>Colecciones</h2>
-<pre class="r"><code>arrl = c(10, 20, 30, 40, 50)
-arrl = c(arrl, 60, 70, 80, 90)
-arrl # 10, 20, 30, 40, 50, 60, 70, 80, 90</code></pre>
-<pre><code>## [1] 10 20 30 40 50 60 70 80 90</code></pre>
-<pre class="r"><code># Ingreso
-arrl[-1] # 20, 30, 40, 50, 60, 70, 80, 90</code></pre>
-<pre><code>## [1] 20 30 40 50 60 70 80 90</code></pre>
-<pre class="r"><code># Otra forma
-arrl[c(-1, -3, -7)] # 20, 40, 50, 60, 80, 90</code></pre>
-<pre><code>## [1] 20 40 50 60 80 90</code></pre>
-</div>
-<div id="costos" class="section level2">
-<h2>Costos</h2>
-<pre class="r"><code># set.seed(1234)
-#           uniforme  100 aleatorios, minimo de 10 y máx de 50
-arr.costo = runif(100, min = 10, max = 50) # Distribuciones
-arr.costo</code></pre>
-<pre><code>##   [1] 10.31931 46.92099 10.54305 16.00078 26.27119 11.62453 39.31495 39.30297
-##   [9] 42.81464 18.41507 33.24683 25.75371 40.09847 12.56797 39.97689 26.22502
-##  [17] 36.17948 37.72042 30.66895 47.89960 40.16652 18.85710 19.00045 28.02237
-##  [25] 48.77378 49.00173 47.73908 33.73572 24.95912 44.08824 40.01444 34.76703
-##  [33] 32.66075 44.52677 31.19294 31.86971 15.70913 23.30749 27.24434 40.62394
-##  [41] 18.66222 32.91879 35.59155 29.45291 41.07117 47.35120 19.58883 26.39710
-##  [49] 29.68245 42.93792 18.85679 33.28764 34.04765 15.60586 19.83277 24.71703
-##  [57] 27.96438 13.39898 19.97667 20.89040 38.52617 33.35272 22.99540 25.84753
-##  [65] 23.64948 19.85519 36.20119 38.75955 17.59619 30.89608 11.43645 17.12348
-##  [73] 14.66324 47.10368 14.70160 47.96059 22.93638 14.35114 23.53523 28.49508
-##  [81] 40.18392 35.74761 38.22398 43.87120 28.00963 40.00644 24.22499 16.50178
-##  [89] 28.04632 40.15574 30.78993 35.02894 16.96621 15.56299 35.36561 46.07254
-##  [97] 20.96998 26.01771 35.90366 33.25781</code></pre>
-<pre class="r"><code>sum(arr.costo)</code></pre>
-<pre><code>## [1] 2981.251</code></pre>
-<pre class="r"><code>arr.costo[20]</code></pre>
-<pre><code>## [1] 47.8996</code></pre>
-<pre class="r"><code>arr.costo &gt; 30</code></pre>
-<pre><code>##   [1] FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE
-##  [13]  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE
-##  [25]  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-##  [37] FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE FALSE  TRUE  TRUE FALSE FALSE
-##  [49] FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-##  [61]  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE
-##  [73] FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
-##  [85] FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE
-##  [97] FALSE FALSE  TRUE  TRUE</code></pre>
-<pre class="r"><code>sum(arr.costo &gt; 30)</code></pre>
-<pre><code>## [1] 50</code></pre>
-<pre class="r"><code>sum(arr.costo &lt;= 30)</code></pre>
-<pre><code>## [1] 50</code></pre>
-<pre class="r"><code>arr.costo[arr.costo &lt;= 30]</code></pre>
-<pre><code>##  [1] 10.31931 10.54305 16.00078 26.27119 11.62453 18.41507 25.75371 12.56797
-##  [9] 26.22502 18.85710 19.00045 28.02237 24.95912 15.70913 23.30749 27.24434
-## [17] 18.66222 29.45291 19.58883 26.39710 29.68245 18.85679 15.60586 19.83277
-## [25] 24.71703 27.96438 13.39898 19.97667 20.89040 22.99540 25.84753 23.64948
-## [33] 19.85519 17.59619 11.43645 17.12348 14.66324 14.70160 22.93638 14.35114
-## [41] 23.53523 28.49508 28.00963 24.22499 16.50178 28.04632 16.96621 15.56299
-## [49] 20.96998 26.01771</code></pre>
-<pre class="r"><code>sum(arr.costo) # Sumar costos</code></pre>
-<pre><code>## [1] 2981.251</code></pre>
-<pre class="r"><code>which.max(arr.costo) # manda valores, dice cual es el valor máx (indice)</code></pre>
-<pre><code>## [1] 26</code></pre>
-<pre class="r"><code>which.min(arr.costo) # manda valores, dice cual es el valor máx</code></pre>
-<pre><code>## [1] 1</code></pre>
-</div>
-<div id="divisiones" class="section level2">
-<h2>Divisiones</h2>
-<pre class="r"><code>probA = 10/50
-probA</code></pre>
-<pre><code>## [1] 0.2</code></pre>
-</div>
-<div id="listas-1" class="section level2">
-<h2>Listas</h2>
-<pre class="r"><code>lista = list(32, &quot;hola&quot;, c(25,10,35), c(T,F,F,T,T,F,F), TRUE)
-lista</code></pre>
+# Parte (i)
+x + x</code></pre>
+<pre><code>## [1]  2  4  6  8 10 12</code></pre>
+<pre class="r"><code># Parte (ii)
+x + y</code></pre>
+<pre><code>## [1]  8 10 10 12 12 14</code></pre>
+<pre class="r"><code># Parte(iii)
+## R recicla los valores de &#39;y&#39; para completar la longitud de &#39;x&#39;</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Si b &lt;- list(a=1:10, c=“Hola”, d=“XX”), escriba una expresión en
+R que devuelva todos los elementos de la lista excepto los elementos
+2,4,6,7,8 del vector a.</li>
+</ol>
+<pre class="r"><code>b &lt;- list(a=1:10, c=&quot;Hola&quot;, d=&quot;XX&quot;)
+
+b$a[!1:10 %in% c(2,4,6,7,8)]</code></pre>
+<pre><code>## [1]  1  3  5  9 10</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Suponga que se almacena en una variable un arreglo con todos los
+números de carnet de los estudiantes de la Escuela de Ciencias y
+Sistemas en forma de string, los carnets tienen al inicio cuatro
+caracteres que identifican el año en el que la persona entró a la
+universidad, por ejemplo: 201900452 hacer referencia a una persona que
+ingreso en el año 2019, 200600987 hace referencia a una persona que
+ingreso que el año 2006.</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>¿Cómo haría para contar la cantidad de alumnos por año?</li>
+</ol>
+<pre class="r"><code>carnets &lt;- c(&quot;201900452&quot;, &quot;201800321&quot;, &quot;201900987&quot;, &quot;200600123&quot;, &quot;200600987&quot;, 
+             &quot;201700111&quot;, &quot;201800222&quot;, &quot;201900333&quot;, &quot;202000555&quot;, &quot;202000666&quot;)
+
+table(substr(carnets, 1, 4))</code></pre>
+<pre><code>## 
+## 2006 2017 2018 2019 2020 
+##    2    1    2    3    2</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Dada la variable string &lt;- “Hola Mundo”, escriba una instrucción
+en R que devuelva la siguiente salida: [[1]] [1] “Hola” [[2]] [1]
+“Mundo”.</li>
+</ol>
+<pre class="r"><code>string &lt;- strsplit(&quot;Hola Mundo&quot;, &quot; &quot;)
+
+string</code></pre>
 <pre><code>## [[1]]
-## [1] 32
-## 
-## [[2]]
-## [1] &quot;hola&quot;
-## 
-## [[3]]
-## [1] 25 10 35
-## 
-## [[4]]
-## [1]  TRUE FALSE FALSE  TRUE  TRUE FALSE FALSE
-## 
-## [[5]]
-## [1] TRUE</code></pre>
-<pre class="r"><code>listaBool = lista[4]
-listaBool[[1]][4] ## [[indice]][posición]</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code>lista[[2]]</code></pre>
-<pre><code>## [1] &quot;hola&quot;</code></pre>
-<pre class="r"><code>lista[[3]][2]</code></pre>
-<pre><code>## [1] 10</code></pre>
-<pre class="r"><code>datos &lt;- list(
-  nombre = &#39;Daniel&#39;,
-  apellido = &#39;Vega&#39;,
-  edad = 30,
-  clases = c(&quot;SO2&quot;, &quot;SEMI1&quot;, &quot;DB2&quot;)
-)
-datos</code></pre>
-<pre><code>## $nombre
-## [1] &quot;Daniel&quot;
-## 
-## $apellido
-## [1] &quot;Vega&quot;
-## 
-## $edad
-## [1] 30
-## 
-## $clases
-## [1] &quot;SO2&quot;   &quot;SEMI1&quot; &quot;DB2&quot;</code></pre>
-<pre class="r"><code>datos$nombre</code></pre>
-<pre><code>## [1] &quot;Daniel&quot;</code></pre>
-<pre class="r"><code>datos$clases[3]</code></pre>
-<pre><code>## [1] &quot;DB2&quot;</code></pre>
-</div>
-</div>
-<div id="clase-0306" class="section level1">
-<h1>Clase 03/06</h1>
-<pre class="r"><code>n_alumnos &lt;- 1000
-notas &lt;- as.integer(runif(n_alumnos, min = 71, max = 100))
-secciones_activas &lt;- c(&#39;A&#39;, &#39;B&#39;, &#39;U&#39;, &#39;V&#39;)
-secciones &lt;- sample(secciones_activas, n_alumnos, replace = TRUE)
-
-ids &lt;- as.integer(runif(n_alumnos, min = 1000, max = 9999)) # generar distribución uniforme
-anio &lt;- sample(c(2015, 2016, 2017, 2018), n_alumnos, replace = TRUE)
-carnets &lt;- paste(anio, ids, sep = &quot;&quot;)
-alumnos &lt;- list(carnet = carnets, seccion = secciones, nota = notas)
-
-## Ver alumnos
-View(alumnos)</code></pre>
-<div id="análisis-exploratorio" class="section level2">
-<h2>Análisis exploratorio</h2>
-<pre class="r"><code># Ver cantidad de carnets para la sección A
-length(alumnos$carnet[alumnos$seccion == &quot;A&quot;])</code></pre>
-<pre><code>## [1] 247</code></pre>
-<pre class="r"><code># Promedio alumnos año 2017
-mean(alumnos$nota[substr(alumnos$carnet, 1, 4) == &#39;2017&#39;])</code></pre>
-<pre><code>## [1] 84.94222</code></pre>
-<pre class="r"><code># Cantidad de registros que tendrá el dataset
-n &lt;- 100
-
-# Crear un data frame con 3 columnas simuladas:
-dataset &lt;- data.frame(
-  cantidad = as.integer(runif(n, min = 10, max = 100)),  # valores aleatorios uniformes entre 10 y 100 (como enteros)
-  precio = rnorm(n, mean = 50, sd = 25),                 # valores con distribución normal (media 50, sd 25)
-  disponible = sample(c(T,F), n, replace = T)            # valores TRUE o FALSE aleatorios con reemplazo
-)
-
-# Mostrar el contenido del dataset
-dataset</code></pre>
-<pre><code>##     cantidad     precio disponible
-## 1         91  39.685520       TRUE
-## 2         69  16.307502      FALSE
-## 3         66  53.733388      FALSE
-## 4         91  73.626046       TRUE
-## 5         86  62.652480       TRUE
-## 6         45  73.502041      FALSE
-## 7         47  14.324216      FALSE
-## 8         44  -6.290462      FALSE
-## 9         10  21.884641      FALSE
-## 10        16  25.763869       TRUE
-## 11        93  73.441932      FALSE
-## 12        17  56.024679      FALSE
-## 13        22   7.126061       TRUE
-## 14        81  60.295976      FALSE
-## 15        23  67.459517      FALSE
-## 16        14  44.927419       TRUE
-## 17        79  75.431067       TRUE
-## 18        67  78.344064      FALSE
-## 19        83  16.769885      FALSE
-## 20        73  70.219117       TRUE
-## 21        43  78.901204      FALSE
-## 22        31  47.176342       TRUE
-## 23        41  62.134609       TRUE
-## 24        69  61.830372       TRUE
-## 25        91  76.525075       TRUE
-## 26        13  22.184037      FALSE
-## 27        20  15.931578       TRUE
-## 28        84  47.310413      FALSE
-## 29        76  36.576210      FALSE
-## 30        92  69.962861       TRUE
-## 31        21  60.721789       TRUE
-## 32        10  82.635880      FALSE
-## 33        37  72.331855      FALSE
-## 34        31  57.599659      FALSE
-## 35        12  45.647628       TRUE
-## 36        35  30.414559       TRUE
-## 37        60  18.839855      FALSE
-## 38        89  78.334176       TRUE
-## 39        82  35.343208      FALSE
-## 40        96  73.491026      FALSE
-## 41        16   9.269647      FALSE
-## 42        24  64.264915       TRUE
-## 43        25  71.454754       TRUE
-## 44        22  26.245711       TRUE
-## 45        75  52.743967      FALSE
-## 46        88  78.923565      FALSE
-## 47        12  60.072707       TRUE
-## 48        12  81.906324       TRUE
-## 49        55   5.713734       TRUE
-## 50        12  46.660920       TRUE
-## 51        96  63.589531       TRUE
-## 52        86  72.563845       TRUE
-## 53        10  32.418002       TRUE
-## 54        84  40.420463       TRUE
-## 55        83  45.089301       TRUE
-## 56        52  47.549170      FALSE
-## 57        71  28.121389       TRUE
-## 58        10  51.146691       TRUE
-## 59        71  47.382788       TRUE
-## 60        38  41.479123      FALSE
-## 61        96  41.425799      FALSE
-## 62        64  33.687589       TRUE
-## 63        56  59.143944       TRUE
-## 64        38  92.813976      FALSE
-## 65        88  39.203055      FALSE
-## 66        20  44.160913      FALSE
-## 67        83  36.771918       TRUE
-## 68        37  59.883917       TRUE
-## 69        72  26.287209      FALSE
-## 70        92  56.214867       TRUE
-## 71        86  63.965247      FALSE
-## 72        78  43.157428       TRUE
-## 73        23  29.946898      FALSE
-## 74        13  64.318527      FALSE
-## 75        21  70.952738       TRUE
-## 76        35  74.235308       TRUE
-## 77        66  41.104707      FALSE
-## 78        74  72.345261       TRUE
-## 79        92  68.835338      FALSE
-## 80        36  48.982711       TRUE
-## 81        97  27.226066      FALSE
-## 82        21  38.596820      FALSE
-## 83        39  46.082079       TRUE
-## 84        52  67.287069       TRUE
-## 85        87  66.743433       TRUE
-## 86        47  69.643677       TRUE
-## 87        74  24.046549      FALSE
-## 88        82 109.379114       TRUE
-## 89        60  89.783934      FALSE
-## 90        57  91.284057      FALSE
-## 91        84  45.594806      FALSE
-## 92        13  68.903907      FALSE
-## 93        50  34.917043       TRUE
-## 94        14  26.065261       TRUE
-## 95        76  50.026685       TRUE
-## 96        70  33.663691       TRUE
-## 97        15  42.073297       TRUE
-## 98        87  79.983862       TRUE
-## 99        40  58.265589       TRUE
-## 100       71  54.318651       TRUE</code></pre>
-<pre class="r"><code># Obtener el número de filas del dataset
-nrow(dataset)</code></pre>
-<pre><code>## [1] 100</code></pre>
-<pre class="r"><code># Obtener el número de columnas del dataset
-ncol(dataset)</code></pre>
-<pre><code>## [1] 3</code></pre>
-<pre class="r"><code># Obtener las dimensiones del dataset (filas y columnas)
-dim(dataset)</code></pre>
-<pre><code>## [1] 100   3</code></pre>
-<pre class="r"><code># Obtener los nombres de las columnas actuales
-colnames(dataset)</code></pre>
-<pre><code>## [1] &quot;cantidad&quot;   &quot;precio&quot;     &quot;disponible&quot;</code></pre>
-<pre class="r"><code># Cambiar los nombres de las columnas
-colnames(dataset) &lt;- c(&quot;Cantidad&quot;, &quot;Precio&quot;, &quot;Disponible&quot;)
-
-# Seleccionar toda la columna 1 (Cantidad)
-dataset[,1]</code></pre>
-<pre><code>##   [1] 91 69 66 91 86 45 47 44 10 16 93 17 22 81 23 14 79 67 83 73 43 31 41 69 91
-##  [26] 13 20 84 76 92 21 10 37 31 12 35 60 89 82 96 16 24 25 22 75 88 12 12 55 12
-##  [51] 96 86 10 84 83 52 71 10 71 38 96 64 56 38 88 20 83 37 72 92 86 78 23 13 21
-##  [76] 35 66 74 92 36 97 21 39 52 87 47 74 82 60 57 84 13 50 14 76 70 15 87 40 71</code></pre>
-<pre class="r"><code># Seleccionar las columnas 1 y 3 (Cantidad y Disponible)
-dataset[, c(1,3)]</code></pre>
-<pre><code>##     Cantidad Disponible
-## 1         91       TRUE
-## 2         69      FALSE
-## 3         66      FALSE
-## 4         91       TRUE
-## 5         86       TRUE
-## 6         45      FALSE
-## 7         47      FALSE
-## 8         44      FALSE
-## 9         10      FALSE
-## 10        16       TRUE
-## 11        93      FALSE
-## 12        17      FALSE
-## 13        22       TRUE
-## 14        81      FALSE
-## 15        23      FALSE
-## 16        14       TRUE
-## 17        79       TRUE
-## 18        67      FALSE
-## 19        83      FALSE
-## 20        73       TRUE
-## 21        43      FALSE
-## 22        31       TRUE
-## 23        41       TRUE
-## 24        69       TRUE
-## 25        91       TRUE
-## 26        13      FALSE
-## 27        20       TRUE
-## 28        84      FALSE
-## 29        76      FALSE
-## 30        92       TRUE
-## 31        21       TRUE
-## 32        10      FALSE
-## 33        37      FALSE
-## 34        31      FALSE
-## 35        12       TRUE
-## 36        35       TRUE
-## 37        60      FALSE
-## 38        89       TRUE
-## 39        82      FALSE
-## 40        96      FALSE
-## 41        16      FALSE
-## 42        24       TRUE
-## 43        25       TRUE
-## 44        22       TRUE
-## 45        75      FALSE
-## 46        88      FALSE
-## 47        12       TRUE
-## 48        12       TRUE
-## 49        55       TRUE
-## 50        12       TRUE
-## 51        96       TRUE
-## 52        86       TRUE
-## 53        10       TRUE
-## 54        84       TRUE
-## 55        83       TRUE
-## 56        52      FALSE
-## 57        71       TRUE
-## 58        10       TRUE
-## 59        71       TRUE
-## 60        38      FALSE
-## 61        96      FALSE
-## 62        64       TRUE
-## 63        56       TRUE
-## 64        38      FALSE
-## 65        88      FALSE
-## 66        20      FALSE
-## 67        83       TRUE
-## 68        37       TRUE
-## 69        72      FALSE
-## 70        92       TRUE
-## 71        86      FALSE
-## 72        78       TRUE
-## 73        23      FALSE
-## 74        13      FALSE
-## 75        21       TRUE
-## 76        35       TRUE
-## 77        66      FALSE
-## 78        74       TRUE
-## 79        92      FALSE
-## 80        36       TRUE
-## 81        97      FALSE
-## 82        21      FALSE
-## 83        39       TRUE
-## 84        52       TRUE
-## 85        87       TRUE
-## 86        47       TRUE
-## 87        74      FALSE
-## 88        82       TRUE
-## 89        60      FALSE
-## 90        57      FALSE
-## 91        84      FALSE
-## 92        13      FALSE
-## 93        50       TRUE
-## 94        14       TRUE
-## 95        76       TRUE
-## 96        70       TRUE
-## 97        15       TRUE
-## 98        87       TRUE
-## 99        40       TRUE
-## 100       71       TRUE</code></pre>
-<pre class="r"><code># Seleccionar la primera fila completa
-dataset[1,]</code></pre>
-<pre><code>##   Cantidad   Precio Disponible
-## 1       91 39.68552       TRUE</code></pre>
-<pre class="r"><code># Seleccionar las filas 1, 10 y 100 completas
-dataset[c(1, 10, 100),]</code></pre>
-<pre><code>##     Cantidad   Precio Disponible
-## 1         91 39.68552       TRUE
-## 10        16 25.76387       TRUE
-## 100       71 54.31865       TRUE</code></pre>
-<pre class="r"><code># Seleccionar las filas 1, 10 y 100, pero solo las columnas 2 y 3 (Precio y Disponible)
-dataset[c(1, 10, 100), c(2,3)]  # c(2,3) indica que se están seleccionando columnas por su posición</code></pre>
-<pre><code>##       Precio Disponible
-## 1   39.68552       TRUE
-## 10  25.76387       TRUE
-## 100 54.31865       TRUE</code></pre>
-<pre class="r"><code># Filtrar
-dataset[dataset$Disponible == T,] # quiero donde disponible sea True</code></pre>
-<pre><code>##     Cantidad     Precio Disponible
-## 1         91  39.685520       TRUE
-## 4         91  73.626046       TRUE
-## 5         86  62.652480       TRUE
-## 10        16  25.763869       TRUE
-## 13        22   7.126061       TRUE
-## 16        14  44.927419       TRUE
-## 17        79  75.431067       TRUE
-## 20        73  70.219117       TRUE
-## 22        31  47.176342       TRUE
-## 23        41  62.134609       TRUE
-## 24        69  61.830372       TRUE
-## 25        91  76.525075       TRUE
-## 27        20  15.931578       TRUE
-## 30        92  69.962861       TRUE
-## 31        21  60.721789       TRUE
-## 35        12  45.647628       TRUE
-## 36        35  30.414559       TRUE
-## 38        89  78.334176       TRUE
-## 42        24  64.264915       TRUE
-## 43        25  71.454754       TRUE
-## 44        22  26.245711       TRUE
-## 47        12  60.072707       TRUE
-## 48        12  81.906324       TRUE
-## 49        55   5.713734       TRUE
-## 50        12  46.660920       TRUE
-## 51        96  63.589531       TRUE
-## 52        86  72.563845       TRUE
-## 53        10  32.418002       TRUE
-## 54        84  40.420463       TRUE
-## 55        83  45.089301       TRUE
-## 57        71  28.121389       TRUE
-## 58        10  51.146691       TRUE
-## 59        71  47.382788       TRUE
-## 62        64  33.687589       TRUE
-## 63        56  59.143944       TRUE
-## 67        83  36.771918       TRUE
-## 68        37  59.883917       TRUE
-## 70        92  56.214867       TRUE
-## 72        78  43.157428       TRUE
-## 75        21  70.952738       TRUE
-## 76        35  74.235308       TRUE
-## 78        74  72.345261       TRUE
-## 80        36  48.982711       TRUE
-## 83        39  46.082079       TRUE
-## 84        52  67.287069       TRUE
-## 85        87  66.743433       TRUE
-## 86        47  69.643677       TRUE
-## 88        82 109.379114       TRUE
-## 93        50  34.917043       TRUE
-## 94        14  26.065261       TRUE
-## 95        76  50.026685       TRUE
-## 96        70  33.663691       TRUE
-## 97        15  42.073297       TRUE
-## 98        87  79.983862       TRUE
-## 99        40  58.265589       TRUE
-## 100       71  54.318651       TRUE</code></pre>
-<pre class="r"><code>dataset[dataset$Disponible == T,c(1)] # quiero donde disponible sea True</code></pre>
-<pre><code>##  [1] 91 91 86 16 22 14 79 73 31 41 69 91 20 92 21 12 35 89 24 25 22 12 12 55 12
-## [26] 96 86 10 84 83 71 10 71 64 56 83 37 92 78 21 35 74 36 39 52 87 47 82 50 14
-## [51] 76 70 15 87 40 71</code></pre>
-<pre class="r"><code>filtro &lt;- ((dataset$Disponible == T) &amp; (dataset$Precio &lt;= 50)) #Agarra el dataset disponible y con precion &lt;= a 50
-dataset[filtro,] # Se puede colocar una columna específica en orden</code></pre>
-<pre><code>##    Cantidad    Precio Disponible
-## 1        91 39.685520       TRUE
-## 10       16 25.763869       TRUE
-## 13       22  7.126061       TRUE
-## 16       14 44.927419       TRUE
-## 22       31 47.176342       TRUE
-## 27       20 15.931578       TRUE
-## 35       12 45.647628       TRUE
-## 36       35 30.414559       TRUE
-## 44       22 26.245711       TRUE
-## 49       55  5.713734       TRUE
-## 50       12 46.660920       TRUE
-## 53       10 32.418002       TRUE
-## 54       84 40.420463       TRUE
-## 55       83 45.089301       TRUE
-## 57       71 28.121389       TRUE
-## 59       71 47.382788       TRUE
-## 62       64 33.687589       TRUE
-## 67       83 36.771918       TRUE
-## 72       78 43.157428       TRUE
-## 80       36 48.982711       TRUE
-## 83       39 46.082079       TRUE
-## 93       50 34.917043       TRUE
-## 94       14 26.065261       TRUE
-## 96       70 33.663691       TRUE
-## 97       15 42.073297       TRUE</code></pre>
-<pre class="r"><code># calcula el promedio (media aritmética) de los valores en la columna Precio del data.frame llamado dataset.
-mean(dataset$Precio)</code></pre>
-<pre><code>## [1] 51.57461</code></pre>
-<pre class="r"><code># Importación de librerías
-library(nycflights23)
+## [1] &quot;Hola&quot;  &quot;Mundo&quot;</code></pre>
+<pre class="r"><code>string[[1]][1]</code></pre>
+<pre><code>## [1] &quot;Hola&quot;</code></pre>
+<pre class="r"><code>string[[1]][2]</code></pre>
+<pre><code>## [1] &quot;Mundo&quot;</code></pre>
+<ol start="7" style="list-style-type: decimal">
+<li>Utilizando el dataset flights de la librería nycflights23
+(recordando: dataset&lt;- flights), realizar lo siguiente:</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Mostrar una gráfica de barras de manera decreciente con la cantidad
+de vuelo por aerolínea (columna “carrier”)</li>
+<li>Mostrar una gráfica de líneas de cantidad de vuelos por mes (columna
+“month”).</li>
+</ol>
+<pre class="r"><code>library(nycflights13)
 library(dplyr)</code></pre>
 <pre><code>## 
 ## Adjuntando el paquete: &#39;dplyr&#39;</code></pre>
@@ -1010,712 +503,74 @@ library(dplyr)</code></pre>
 <pre><code>## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code>library(ggplot2)</code></pre>
+<pre class="r"><code>library(ggplot2)
+
+# 7.a
+flights %&gt;% count(carrier, sort=TRUE) %&gt;%
+  ggplot(aes(x=reorder(carrier, -n), y=n)) + geom_bar(stat=&quot;identity&quot;)</code></pre>
+<p><img role="img" src="data:image/png;base64,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" width="672" /></p>
+<pre class="r"><code># 7.b
+flights %&gt;% count(month) %&gt;%
+  ggplot(aes(x=month, y=n)) + geom_line()</code></pre>
+<p><img role="img" src="data:image/png;base64,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" width="672" /></p>
 </div>
+<div id="parte-2" class="section level1">
+<h1>Parte 2</h1>
+<div id="ejercicio-1-lanzamiento-de-dos-dados" class="section level2">
+<h2>Ejercicio 1: Lanzamiento de dos dados</h2>
+<p>Lanza dos dados justos. Define el espacio muestral y calcula las
+siguientes probabilidades: A. Que la suma sea 7. B. Que ambos dados
+muestren el mismo número. C. Que la suma sea 7 o los dados muestren el
+mismo número.</p>
+<pre class="r"><code>muestral &lt;- expand.grid(d1 = 1:6, d2 = 1:6)
+A &lt;- with(muestral, d1 + d2 == 7)
+B &lt;- with(muestral, d1 == d2)
+C &lt;- A | B
+c(P_A = mean(A), P_B = mean(B), P_C = mean(C))</code></pre>
+<pre><code>##       P_A       P_B       P_C 
+## 0.1666667 0.1666667 0.3333333</code></pre>
 </div>
-<div id="clase-0406" class="section level1">
-<h1>Clase 04/06</h1>
-<pre class="r"><code>dataset &lt;- flights   # Asigna el dataset &#39;flights&#39; a la variable &#39;dataset&#39;
-head(dataset)        # Muestra las primeras 6 filas del dataset &#39;dataset&#39;</code></pre>
-<pre><code>## # A tibble: 6 × 19
-##    year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-## 1  2023     1     1        1           2038       203      328              3
-## 2  2023     1     1       18           2300        78      228            135
-## 3  2023     1     1       31           2344        47      500            426
-## 4  2023     1     1       33           2140       173      238           2352
-## 5  2023     1     1       36           2048       228      223           2252
-## 6  2023     1     1      503            500         3      808            815
-## # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<pre class="r"><code>colnames(dataset)</code></pre>
-<pre><code>##  [1] &quot;year&quot;           &quot;month&quot;          &quot;day&quot;            &quot;dep_time&quot;      
-##  [5] &quot;sched_dep_time&quot; &quot;dep_delay&quot;      &quot;arr_time&quot;       &quot;sched_arr_time&quot;
-##  [9] &quot;arr_delay&quot;      &quot;carrier&quot;        &quot;flight&quot;         &quot;tailnum&quot;       
-## [13] &quot;origin&quot;         &quot;dest&quot;           &quot;air_time&quot;       &quot;distance&quot;      
-## [17] &quot;hour&quot;           &quot;minute&quot;         &quot;time_hour&quot;</code></pre>
-<pre class="r"><code># Se usa para obtener una visión rápida y compacta de un dataset. En lugar de mostrar solo las primeras filas como lo hace head(), glimpse() muestra el nombre de las columnas, sus tipos de datos y una pequeña muestra de los valores de cada columna.
-glimpse(dataset)</code></pre>
-<pre><code>## Rows: 435,352
-## Columns: 19
-## $ year           &lt;int&gt; 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2023, 2…
-## $ month          &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
-## $ day            &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
-## $ dep_time       &lt;int&gt; 1, 18, 31, 33, 36, 503, 520, 524, 537, 547, 549, 551, 5…
-## $ sched_dep_time &lt;int&gt; 2038, 2300, 2344, 2140, 2048, 500, 510, 530, 520, 545, …
-## $ dep_delay      &lt;dbl&gt; 203, 78, 47, 173, 228, 3, 10, -6, 17, 2, -10, -9, -7, -…
-## $ arr_time       &lt;int&gt; 328, 228, 500, 238, 223, 808, 948, 645, 926, 845, 905, …
-## $ sched_arr_time &lt;int&gt; 3, 135, 426, 2352, 2252, 815, 949, 710, 818, 852, 901, …
-## $ arr_delay      &lt;dbl&gt; 205, 53, 34, 166, 211, -7, -1, -25, 68, -7, 4, -13, -14…
-## $ carrier        &lt;chr&gt; &quot;UA&quot;, &quot;DL&quot;, &quot;B6&quot;, &quot;B6&quot;, &quot;UA&quot;, &quot;AA&quot;, &quot;B6&quot;, &quot;AA&quot;, &quot;UA&quot;, &quot;…
-## $ flight         &lt;int&gt; 628, 393, 371, 1053, 219, 499, 996, 981, 206, 225, 800,…
-## $ tailnum        &lt;chr&gt; &quot;N25201&quot;, &quot;N830DN&quot;, &quot;N807JB&quot;, &quot;N265JB&quot;, &quot;N17730&quot;, &quot;N925…
-## $ origin         &lt;chr&gt; &quot;EWR&quot;, &quot;JFK&quot;, &quot;JFK&quot;, &quot;JFK&quot;, &quot;EWR&quot;, &quot;EWR&quot;, &quot;JFK&quot;, &quot;EWR&quot;,…
-## $ dest           &lt;chr&gt; &quot;SMF&quot;, &quot;ATL&quot;, &quot;BQN&quot;, &quot;CHS&quot;, &quot;DTW&quot;, &quot;MIA&quot;, &quot;BQN&quot;, &quot;ORD&quot;,…
-## $ air_time       &lt;dbl&gt; 367, 108, 190, 108, 80, 154, 192, 119, 258, 157, 164, 1…
-## $ distance       &lt;dbl&gt; 2500, 760, 1576, 636, 488, 1085, 1576, 719, 1400, 1065,…
-## $ hour           &lt;dbl&gt; 20, 23, 23, 21, 20, 5, 5, 5, 5, 5, 5, 6, 5, 6, 6, 6, 6,…
-## $ minute         &lt;dbl&gt; 38, 0, 44, 40, 48, 0, 10, 30, 20, 45, 59, 0, 59, 0, 0, …
-## $ time_hour      &lt;dttm&gt; 2023-01-01 20:00:00, 2023-01-01 23:00:00, 2023-01-01 2…</code></pre>
-<pre class="r"><code>View(dataset)</code></pre>
-<pre class="r"><code>dataset %&gt;%
-  filter(origin %in% c(&#39;CWR&#39;, &#39;LGA&#39;)) %&gt;%  # Filtra solo los vuelos cuyo origen es &#39;CWR&#39; o &#39;LGA&#39;
-  filter(dep_time &gt;= 3, dep_time &lt;= 8) %&gt;%  # Filtra solo los vuelos cuya hora de salida (dep_time) esté entre 3 y 8 (posiblemente en formato de 24 horas)
-  filter(air_time &lt;= 150)                  # Filtra solo los vuelos cuya duración de vuelo (air_time) sea 150 minutos o menos</code></pre>
-<pre><code>## # A tibble: 35 × 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2023     1     3        8           1945       263      223           2215
-##  2  2023     1    14        5           2245        80      226            145
-##  3  2023     1    19        5           2245        80      301            145
-##  4  2023     1    29        5           2245        80      241            145
-##  5  2023     1    30        6           2045       201      156           2214
-##  6  2023     2    24        6           1820       346      304           2125
-##  7  2023     3    12        3           2220       103      126           2359
-##  8  2023     3    24        7           2220       107      147           2359
-##  9  2023     3    28        8           2255        73      252            154
-## 10  2023     3    30        8           2220       108      119           2350
-## # ℹ 25 more rows
-## # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<pre class="r"><code>dataset %&gt;%
-  filter(origin == &#39;EWR&#39;, dep_time &lt;= 8, air_time &lt;= 150)</code></pre>
-<pre><code>## # A tibble: 60 × 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2023     1     2        8           1729       399      241           2046
-##  2  2023     1     3        3           2059       184      227           2325
-##  3  2023     1    12        4           2159       125      108           2306
-##  4  2023     1    19        3           2200       123      247             59
-##  5  2023     1    25        5           2159       126      131           2306
-##  6  2023     1    31        1           2200       121      232             59
-##  7  2023     2     3        2           2140       142      204           2346
-##  8  2023     2    11        7           2130       157       52           2234
-##  9  2023     3     6        5           2048       197      312           2356
-## 10  2023     3    12        8           2200       128      113           2317
-## # ℹ 50 more rows
-## # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<pre class="r"><code># filter(dataset, origin == &quot;EWR&quot;):
+<div id="ejercicio-2-lanzamiento-de-tres-monedas" class="section level2">
+<h2>Ejercicio 2: Lanzamiento de tres monedas</h2>
+<p>Lanza tres monedas justas. Simula este experimento 1000 veces y
+calcula: A. La probabilidad de que salgan exactamente dos caras. B. La
+probabilidad de que al menos una sea sello. C. La probabilidad de que
+todas sean iguales.</p>
+<pre class="r"><code>set.seed(1)
 
-## Aplica el primer filtro en el dataset original (dataset).
-## origin == &quot;EWR&quot;: Filtra todas las filas donde la columna origin (origen del vuelo) sea igual a &#39;EWR&#39; (es decir, solo vuelos que tienen origen en EWR).
-## filter(..., dep_time &lt;= 8):
+monedas &lt;- replicate(1000, sample(c(&quot;c&quot;, &quot;s&quot;), 3, replace=TRUE))
 
-## dep_time &lt;= 8: Este filtro selecciona las filas donde la columna dep_time (hora de salida) es menor o igual a 8. En otras palabras, se seleccionan los vuelos cuya hora de salida es antes de las 8 AM.
+caras &lt;- apply(monedas, 2, function(x) sum(x == &quot;c&quot;))
 
-## filter(..., air_time &lt;= 150):
-
-## air_time &lt;= 150: Este filtro selecciona los vuelos cuya duración (air_time) es menor o igual a 150 minutos.
-
-filter(filter(filter(dataset, origin == &quot;EWR&quot;), dep_time &lt;= 8), air_time &lt;= 150)</code></pre>
-<pre><code>## # A tibble: 60 × 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2023     1     2        8           1729       399      241           2046
-##  2  2023     1     3        3           2059       184      227           2325
-##  3  2023     1    12        4           2159       125      108           2306
-##  4  2023     1    19        3           2200       123      247             59
-##  5  2023     1    25        5           2159       126      131           2306
-##  6  2023     1    31        1           2200       121      232             59
-##  7  2023     2     3        2           2140       142      204           2346
-##  8  2023     2    11        7           2130       157       52           2234
-##  9  2023     3     6        5           2048       197      312           2356
-## 10  2023     3    12        8           2200       128      113           2317
-## # ℹ 50 more rows
-## # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<pre class="r"><code>dataset %&gt;%              # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  distinct(origin)        # Selecciona las filas únicas de la columna &#39;origin&#39; (origen de los vuelos)</code></pre>
-<pre><code>## # A tibble: 3 × 1
-##   origin
-##   &lt;chr&gt; 
-## 1 EWR   
-## 2 JFK   
-## 3 LGA</code></pre>
-<pre class="r"><code>unique(dataset$origin)</code></pre>
-<pre><code>## [1] &quot;EWR&quot; &quot;JFK&quot; &quot;LGA&quot;</code></pre>
-<pre class="r"><code>dataset %&gt;%                           # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  filter(!is.na(dep_delay)) %&gt;%          # Filtra las filas donde &#39;dep_delay&#39; (retraso de salida) no sea NA (valor ausente)
-  sample_frac(0.1, replace = F)        # Selecciona una muestra aleatoria del 10% (0.1) de las filas sin reemplazo</code></pre>
-<pre><code>## # A tibble: 42,461 × 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2023    10    19      952           1000        -8     1209           1229
-##  2  2023     3    15     1721           1725        -4     1923           1940
-##  3  2023     1    10     1744           1712        32     1847           1831
-##  4  2023    11    21     1532           1535        -3     1837           1847
-##  5  2023     9    28     1905           1859         6     2121           2101
-##  6  2023     9     9     1556           1559        -3     1848           1916
-##  7  2023    10    12      829            832        -3     1124           1139
-##  8  2023     2     9     1830           1835        -5     2051           2109
-##  9  2023    10     3      646            650        -4      925           1015
-## 10  2023     3     1     1944           1950        -6     2208           2218
-## # ℹ 42,451 more rows
-## # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<pre class="r"><code>dataset %&gt;%             # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  sample_n(100, replace = F)  # Selecciona aleatoriamente 100 filas del dataset sin reemplazo</code></pre>
-<pre><code>## # A tibble: 100 × 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2023    12    20      900            900         0     1035           1052
-##  2  2023     2    26     1816           1820        -4     2034           2059
-##  3  2023     2    10      724            731        -7      844            852
-##  4  2023    10    21     1951           2000        -9     2209           2220
-##  5  2023     8    27     1409           1412        -3     1608           1626
-##  6  2023     4    27     1951           2000        -9     2212           2221
-##  7  2023    11    18     1343           1335         8     1546           1613
-##  8  2023     8    18      700            659         1     1143           1057
-##  9  2023     5     6     1504           1515       -11     1556           1620
-## 10  2023     4    17     2057           2059        -2     2331           2334
-## # ℹ 90 more rows
-## # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<pre class="r"><code>dataset %&gt;%      # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  slice(2:51)    # Selecciona las filas desde la 2 hasta la 51 (inclusive) del dataset</code></pre>
-<pre><code>## # A tibble: 50 × 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2023     1     1       18           2300        78      228            135
-##  2  2023     1     1       31           2344        47      500            426
-##  3  2023     1     1       33           2140       173      238           2352
-##  4  2023     1     1       36           2048       228      223           2252
-##  5  2023     1     1      503            500         3      808            815
-##  6  2023     1     1      520            510        10      948            949
-##  7  2023     1     1      524            530        -6      645            710
-##  8  2023     1     1      537            520        17      926            818
-##  9  2023     1     1      547            545         2      845            852
-## 10  2023     1     1      549            559       -10      905            901
-## # ℹ 40 more rows
-## # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<pre class="r"><code>dataset[2:51,]</code></pre>
-<pre><code>## # A tibble: 50 × 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2023     1     1       18           2300        78      228            135
-##  2  2023     1     1       31           2344        47      500            426
-##  3  2023     1     1       33           2140       173      238           2352
-##  4  2023     1     1       36           2048       228      223           2252
-##  5  2023     1     1      503            500         3      808            815
-##  6  2023     1     1      520            510        10      948            949
-##  7  2023     1     1      524            530        -6      645            710
-##  8  2023     1     1      537            520        17      926            818
-##  9  2023     1     1      547            545         2      845            852
-## 10  2023     1     1      549            559       -10      905            901
-## # ℹ 40 more rows
-## # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<pre class="r"><code>dataset %&gt;%                        # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  top_n(10, air_time) %&gt;%            # Selecciona las 10 filas con los mayores valores de &#39;air_time&#39; (duración de vuelo)
-  arrange(-air_time)                # Ordena el dataset de manera descendente por la columna &#39;air_time&#39;</code></pre>
-<pre><code>## # A tibble: 10 × 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2023     3     9     1009           1000         9     1720           1605
-##  2  2023     1    10      913            900        13     1615           1525
-##  3  2023     3    10      852            900        -8     1616           1537
-##  4  2023     3     8      853            900        -7     1608           1525
-##  5  2023     1    31      858            900        -2     1627           1525
-##  6  2023     4     2     1104           1000        64     1702           1510
-##  7  2023     1    28     1121            900       141     1820           1525
-##  8  2023     3    23      851            900        -9     1451           1437
-##  9  2023     2     4     1005           1000         5     1649           1605
-## 10  2023     3     7     1345            900       285     2100           1525
-## # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<pre class="r"><code>dataset %&gt;%                          # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  select(dep_time, origin, dest, arr_time, air_time)  # Selecciona las columnas &#39;dep_time&#39;, &#39;origin&#39;, &#39;dest&#39;, &#39;arr_time&#39;, &#39;air_time&#39; del dataset</code></pre>
-<pre><code>## # A tibble: 435,352 × 5
-##    dep_time origin dest  arr_time air_time
-##       &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;    &lt;int&gt;    &lt;dbl&gt;
-##  1        1 EWR    SMF        328      367
-##  2       18 JFK    ATL        228      108
-##  3       31 JFK    BQN        500      190
-##  4       33 JFK    CHS        238      108
-##  5       36 EWR    DTW        223       80
-##  6      503 EWR    MIA        808      154
-##  7      520 JFK    BQN        948      192
-##  8      524 EWR    ORD        645      119
-##  9      537 EWR    IAH        926      258
-## 10      547 EWR    FLL        845      157
-## # ℹ 435,342 more rows</code></pre>
-<pre class="r"><code>dataset %&gt;%                              # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  select(ends_with(&quot;time&quot;), origin, dest)  # Selecciona las columnas que terminan en &#39;time&#39;, junto con &#39;origin&#39; y &#39;dest&#39;</code></pre>
-<pre><code>## # A tibble: 435,352 × 7
-##    dep_time sched_dep_time arr_time sched_arr_time air_time origin dest 
-##       &lt;int&gt;          &lt;int&gt;    &lt;int&gt;          &lt;int&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;
-##  1        1           2038      328              3      367 EWR    SMF  
-##  2       18           2300      228            135      108 JFK    ATL  
-##  3       31           2344      500            426      190 JFK    BQN  
-##  4       33           2140      238           2352      108 JFK    CHS  
-##  5       36           2048      223           2252       80 EWR    DTW  
-##  6      503            500      808            815      154 EWR    MIA  
-##  7      520            510      948            949      192 JFK    BQN  
-##  8      524            530      645            710      119 EWR    ORD  
-##  9      537            520      926            818      258 EWR    IAH  
-## 10      547            545      845            852      157 EWR    FLL  
-## # ℹ 435,342 more rows</code></pre>
-<pre class="r"><code>dataset %&gt;%
-  select(starts_with(&quot;arr&quot;), origin, dest)</code></pre>
-<pre><code>## # A tibble: 435,352 × 4
-##    arr_time arr_delay origin dest 
-##       &lt;int&gt;     &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;
-##  1      328       205 EWR    SMF  
-##  2      228        53 JFK    ATL  
-##  3      500        34 JFK    BQN  
-##  4      238       166 JFK    CHS  
-##  5      223       211 EWR    DTW  
-##  6      808        -7 EWR    MIA  
-##  7      948        -1 JFK    BQN  
-##  8      645       -25 EWR    ORD  
-##  9      926        68 EWR    IAH  
-## 10      845        -7 EWR    FLL  
-## # ℹ 435,342 more rows</code></pre>
-<pre class="r"><code>dataset %&gt;%                                           # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  select(matches(&quot;(.+)_(.*)_(.*)&quot;))                    # Selecciona las columnas cuyos nombres coinciden con el patrón de expresión regular</code></pre>
-<pre><code>## # A tibble: 435,352 × 2
-##    sched_dep_time sched_arr_time
-##             &lt;int&gt;          &lt;int&gt;
-##  1           2038              3
-##  2           2300            135
-##  3           2344            426
-##  4           2140           2352
-##  5           2048           2252
-##  6            500            815
-##  7            510            949
-##  8            530            710
-##  9            520            818
-## 10            545            852
-## # ℹ 435,342 more rows</code></pre>
-<pre class="r"><code>library(MASS)</code></pre>
-<pre><code>## 
-## Adjuntando el paquete: &#39;MASS&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
-## 
-##     select</code></pre>
-<pre class="r"><code>dataset %&gt;%                                            # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  dplyr::select(matches(&quot;(.+)_(.*)_(.*)&quot;))              # Selecciona las columnas cuyos nombres coinciden con el patrón de expresión regular, usando explícitamente la función &#39;select&#39; de dplyr</code></pre>
-<pre><code>## # A tibble: 435,352 × 2
-##    sched_dep_time sched_arr_time
-##             &lt;int&gt;          &lt;int&gt;
-##  1           2038              3
-##  2           2300            135
-##  3           2344            426
-##  4           2140           2352
-##  5           2048           2252
-##  6            500            815
-##  7            510            949
-##  8            530            710
-##  9            520            818
-## 10            545            852
-## # ℹ 435,342 more rows</code></pre>
-<pre class="r"><code>dataset = dataset %&gt;%                               # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  mutate(speed = (distance * 1.605)/(air_time/60)) %&gt;% # Crea una nueva columna &#39;speed&#39; calculando la velocidad en km/h
-  mutate(distance_km = distance * 1.605)             # Crea una nueva columna &#39;distance_km&#39; convirtiendo &#39;distance&#39; de millas a kilómetros
-dataset                                              # Muestra el dataset modificado con las nuevas columnas</code></pre>
-<pre><code>## # A tibble: 435,352 × 21
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2023     1     1        1           2038       203      328              3
-##  2  2023     1     1       18           2300        78      228            135
-##  3  2023     1     1       31           2344        47      500            426
-##  4  2023     1     1       33           2140       173      238           2352
-##  5  2023     1     1       36           2048       228      223           2252
-##  6  2023     1     1      503            500         3      808            815
-##  7  2023     1     1      520            510        10      948            949
-##  8  2023     1     1      524            530        -6      645            710
-##  9  2023     1     1      537            520        17      926            818
-## 10  2023     1     1      547            545         2      845            852
-## # ℹ 435,342 more rows
-## # ℹ 13 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, speed &lt;dbl&gt;, distance_km &lt;dbl&gt;</code></pre>
-<pre class="r"><code>dataset = dataset %&gt;%  # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  mutate(speed = (distance * 1.605)/(air_time/60), distance_km = distance * 1.605)  # Crea las columnas &#39;speed&#39; y &#39;distance_km&#39; en una sola operación
-dataset  # Muestra el dataset modificado con las nuevas columnas</code></pre>
-<pre><code>## # A tibble: 435,352 × 21
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2023     1     1        1           2038       203      328              3
-##  2  2023     1     1       18           2300        78      228            135
-##  3  2023     1     1       31           2344        47      500            426
-##  4  2023     1     1       33           2140       173      238           2352
-##  5  2023     1     1       36           2048       228      223           2252
-##  6  2023     1     1      503            500         3      808            815
-##  7  2023     1     1      520            510        10      948            949
-##  8  2023     1     1      524            530        -6      645            710
-##  9  2023     1     1      537            520        17      926            818
-## 10  2023     1     1      547            545         2      845            852
-## # ℹ 435,342 more rows
-## # ℹ 13 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, speed &lt;dbl&gt;, distance_km &lt;dbl&gt;</code></pre>
-<pre class="r"><code>dataset$speed_v2 = (dataset$distance * 1.605)/(dataset$air_time/60)  # Crea una nueva columna &#39;speed_v2&#39; calculando la velocidad en km/h
-dataset  # Muestra el dataset modificado con la nueva columna &#39;speed_v2&#39;</code></pre>
-<pre><code>## # A tibble: 435,352 × 22
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2023     1     1        1           2038       203      328              3
-##  2  2023     1     1       18           2300        78      228            135
-##  3  2023     1     1       31           2344        47      500            426
-##  4  2023     1     1       33           2140       173      238           2352
-##  5  2023     1     1       36           2048       228      223           2252
-##  6  2023     1     1      503            500         3      808            815
-##  7  2023     1     1      520            510        10      948            949
-##  8  2023     1     1      524            530        -6      645            710
-##  9  2023     1     1      537            520        17      926            818
-## 10  2023     1     1      547            545         2      845            852
-## # ℹ 435,342 more rows
-## # ℹ 14 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, speed &lt;dbl&gt;, distance_km &lt;dbl&gt;,
-## #   speed_v2 &lt;dbl&gt;</code></pre>
-<pre class="r"><code>dataset %&gt;%                                    # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  transmute(speed = (distance * 1.605))         # Crea una nueva columna &#39;speed&#39; con la distancia convertida a kilómetros (multiplicando por 1.605)</code></pre>
-<pre><code>## # A tibble: 435,352 × 1
-##    speed
-##    &lt;dbl&gt;
-##  1 4012.
-##  2 1220.
-##  3 2529.
-##  4 1021.
-##  5  783.
-##  6 1741.
-##  7 2529.
-##  8 1154.
-##  9 2247 
-## 10 1709.
-## # ℹ 435,342 more rows</code></pre>
-<pre class="r"><code>dataset</code></pre>
-<pre><code>## # A tibble: 435,352 × 22
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2023     1     1        1           2038       203      328              3
-##  2  2023     1     1       18           2300        78      228            135
-##  3  2023     1     1       31           2344        47      500            426
-##  4  2023     1     1       33           2140       173      238           2352
-##  5  2023     1     1       36           2048       228      223           2252
-##  6  2023     1     1      503            500         3      808            815
-##  7  2023     1     1      520            510        10      948            949
-##  8  2023     1     1      524            530        -6      645            710
-##  9  2023     1     1      537            520        17      926            818
-## 10  2023     1     1      547            545         2      845            852
-## # ℹ 435,342 more rows
-## # ℹ 14 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, speed &lt;dbl&gt;, distance_km &lt;dbl&gt;,
-## #   speed_v2 &lt;dbl&gt;</code></pre>
-<pre class="r"><code>dataset %&gt;%                                       # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  summarise(promedio_speed = mean(speed, na.rm = T))  # Calcula el promedio de la columna &#39;speed&#39;, ignorando los valores NA (faltantes)</code></pre>
-<pre><code>## # A tibble: 1 × 1
-##   promedio_speed
-##            &lt;dbl&gt;
-## 1           628.</code></pre>
-<pre class="r"><code>dataset %&gt;%                                     # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  filter(!is.na(speed)) %&gt;%                      # Filtra las filas donde &#39;speed&#39; no es NA (es decir, elimina las filas con valores faltantes en &#39;speed&#39;)
-  summarise(promedio_speed = mean(speed, distance_total = sum(distance)))  # Calcula el promedio de &#39;speed&#39; y la suma de &#39;distance&#39;</code></pre>
-<pre><code>## # A tibble: 1 × 1
-##   promedio_speed
-##            &lt;dbl&gt;
-## 1           628.</code></pre>
-<pre class="r"><code>df_grp_origin = dataset %&gt;%
-  group_by(origin)
-df_grp_origin</code></pre>
-<pre><code>## # A tibble: 435,352 × 22
-## # Groups:   origin [3]
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2023     1     1        1           2038       203      328              3
-##  2  2023     1     1       18           2300        78      228            135
-##  3  2023     1     1       31           2344        47      500            426
-##  4  2023     1     1       33           2140       173      238           2352
-##  5  2023     1     1       36           2048       228      223           2252
-##  6  2023     1     1      503            500         3      808            815
-##  7  2023     1     1      520            510        10      948            949
-##  8  2023     1     1      524            530        -6      645            710
-##  9  2023     1     1      537            520        17      926            818
-## 10  2023     1     1      547            545         2      845            852
-## # ℹ 435,342 more rows
-## # ℹ 14 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, speed &lt;dbl&gt;, distance_km &lt;dbl&gt;,
-## #   speed_v2 &lt;dbl&gt;</code></pre>
-<pre class="r"><code>str(df_grp_origin)</code></pre>
-<pre><code>## gropd_df [435,352 × 22] (S3: grouped_df/tbl_df/tbl/data.frame)
-##  $ year          : int [1:435352] 2023 2023 2023 2023 2023 2023 2023 2023 2023 2023 ...
-##  $ month         : int [1:435352] 1 1 1 1 1 1 1 1 1 1 ...
-##  $ day           : int [1:435352] 1 1 1 1 1 1 1 1 1 1 ...
-##  $ dep_time      : int [1:435352] 1 18 31 33 36 503 520 524 537 547 ...
-##  $ sched_dep_time: int [1:435352] 2038 2300 2344 2140 2048 500 510 530 520 545 ...
-##  $ dep_delay     : num [1:435352] 203 78 47 173 228 3 10 -6 17 2 ...
-##  $ arr_time      : int [1:435352] 328 228 500 238 223 808 948 645 926 845 ...
-##  $ sched_arr_time: int [1:435352] 3 135 426 2352 2252 815 949 710 818 852 ...
-##  $ arr_delay     : num [1:435352] 205 53 34 166 211 -7 -1 -25 68 -7 ...
-##  $ carrier       : chr [1:435352] &quot;UA&quot; &quot;DL&quot; &quot;B6&quot; &quot;B6&quot; ...
-##  $ flight        : int [1:435352] 628 393 371 1053 219 499 996 981 206 225 ...
-##  $ tailnum       : chr [1:435352] &quot;N25201&quot; &quot;N830DN&quot; &quot;N807JB&quot; &quot;N265JB&quot; ...
-##  $ origin        : chr [1:435352] &quot;EWR&quot; &quot;JFK&quot; &quot;JFK&quot; &quot;JFK&quot; ...
-##  $ dest          : chr [1:435352] &quot;SMF&quot; &quot;ATL&quot; &quot;BQN&quot; &quot;CHS&quot; ...
-##  $ air_time      : num [1:435352] 367 108 190 108 80 154 192 119 258 157 ...
-##  $ distance      : num [1:435352] 2500 760 1576 636 488 ...
-##  $ hour          : num [1:435352] 20 23 23 21 20 5 5 5 5 5 ...
-##  $ minute        : num [1:435352] 38 0 44 40 48 0 10 30 20 45 ...
-##  $ time_hour     : POSIXct[1:435352], format: &quot;2023-01-01 20:00:00&quot; &quot;2023-01-01 23:00:00&quot; ...
-##  $ speed         : num [1:435352] 656 678 799 567 587 ...
-##  $ distance_km   : num [1:435352] 4012 1220 2529 1021 783 ...
-##  $ speed_v2      : num [1:435352] 656 678 799 567 587 ...
-##  - attr(*, &quot;groups&quot;)= tibble [3 × 2] (S3: tbl_df/tbl/data.frame)
-##   ..$ origin: chr [1:3] &quot;EWR&quot; &quot;JFK&quot; &quot;LGA&quot;
-##   ..$ .rows : list&lt;int&gt; [1:3] 
-##   .. ..$ : int [1:138578] 1 5 6 8 9 10 15 16 18 21 ...
-##   .. ..$ : int [1:133048] 2 3 4 7 11 14 35 38 40 42 ...
-##   .. ..$ : int [1:163726] 12 13 17 19 20 22 25 26 27 28 ...
-##   .. ..@ ptype: int(0) 
-##   ..- attr(*, &quot;.drop&quot;)= logi TRUE</code></pre>
-<pre class="r"><code>dataset %&gt;%                                      # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  group_by(origin) %&gt;%                           # Agrupa las filas por la columna &#39;origin&#39; (origen del vuelo)
-  summarise(                                     # Resume los datos calculando varias estadísticas para cada grupo
-    tiempo_promedio_vuelo = mean(air_time, na.rm = T),  # Calcula el promedio de &#39;air_time&#39; (tiempo de vuelo) para cada grupo, ignorando los valores NA
-    distancia_promedio = mean(distance),              # Calcula el promedio de &#39;distance&#39; (distancia) para cada grupo
-    cantidad_vuelos = n()                            # Calcula la cantidad de vuelos en cada grupo (número de filas por grupo)
-  )</code></pre>
-<pre><code>## # A tibble: 3 × 4
-##   origin tiempo_promedio_vuelo distancia_promedio cantidad_vuelos
-##   &lt;chr&gt;                  &lt;dbl&gt;              &lt;dbl&gt;           &lt;int&gt;
-## 1 EWR                     153.              1074.          138578
-## 2 JFK                     167.              1177.          133048
-## 3 LGA                     112.               733.          163726</code></pre>
-<pre class="r"><code>dataset %&gt;%
-  group_by(origin) %&gt;%
-  summarise(tiempo_promedio_vuelo = mean(air_time, na.rm = T), distancia_promedio = mean(distance))</code></pre>
-<pre><code>## # A tibble: 3 × 3
-##   origin tiempo_promedio_vuelo distancia_promedio
-##   &lt;chr&gt;                  &lt;dbl&gt;              &lt;dbl&gt;
-## 1 EWR                     153.              1074.
-## 2 JFK                     167.              1177.
-## 3 LGA                     112.               733.</code></pre>
-<pre class="r"><code>dataset %&gt;%                                        # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  filter(!is.na(tailnum)) %&gt;%                       # Filtra las filas donde la columna &#39;tailnum&#39; no sea NA (eliminando vuelos sin número de avión)
-  group_by(tailnum) %&gt;%                            # Agrupa las filas por la columna &#39;tailnum&#39; (número de avión)
-  summarise(distancia_total = sum(distance)) %&gt;%   # Calcula la suma total de la distancia por cada avión (por cada &#39;tailnum&#39;)
-  arrange(-distancia_total) %&gt;%                    # Ordena el dataset de manera descendente según la columna &#39;distancia_total&#39;
-  top_n(10, distancia_total)                        # Selecciona los 10 aviones con mayor distancia total</code></pre>
-<pre><code>## # A tibble: 10 × 2
-##    tailnum distancia_total
-##    &lt;chr&gt;             &lt;dbl&gt;
-##  1 N115NN           847131
-##  2 N110AN           838882
-##  3 N101NN           834407
-##  4 N117AN           826406
-##  5 N105NN           807582
-##  6 N116AN           806145
-##  7 N113AN           799061
-##  8 N112AN           797287
-##  9 N107NN           794303
-## 10 N103NN           793303</code></pre>
-<pre class="r"><code>dataset</code></pre>
-<pre><code>## # A tibble: 435,352 × 22
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2023     1     1        1           2038       203      328              3
-##  2  2023     1     1       18           2300        78      228            135
-##  3  2023     1     1       31           2344        47      500            426
-##  4  2023     1     1       33           2140       173      238           2352
-##  5  2023     1     1       36           2048       228      223           2252
-##  6  2023     1     1      503            500         3      808            815
-##  7  2023     1     1      520            510        10      948            949
-##  8  2023     1     1      524            530        -6      645            710
-##  9  2023     1     1      537            520        17      926            818
-## 10  2023     1     1      547            545         2      845            852
-## # ℹ 435,342 more rows
-## # ℹ 14 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, speed &lt;dbl&gt;, distance_km &lt;dbl&gt;,
-## #   speed_v2 &lt;dbl&gt;</code></pre>
-<pre class="r"><code>flights</code></pre>
-<pre><code>## # A tibble: 435,352 × 19
-##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1  2023     1     1        1           2038       203      328              3
-##  2  2023     1     1       18           2300        78      228            135
-##  3  2023     1     1       31           2344        47      500            426
-##  4  2023     1     1       33           2140       173      238           2352
-##  5  2023     1     1       36           2048       228      223           2252
-##  6  2023     1     1      503            500         3      808            815
-##  7  2023     1     1      520            510        10      948            949
-##  8  2023     1     1      524            530        -6      645            710
-##  9  2023     1     1      537            520        17      926            818
-## 10  2023     1     1      547            545         2      845            852
-## # ℹ 435,342 more rows
-## # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre>
-<pre class="r"><code>planes</code></pre>
-<pre><code>## # A tibble: 4,840 × 9
-##    tailnum  year type              manufacturer model engines seats speed engine
-##    &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; 
-##  1 N101DQ   2020 Fixed wing multi… AIRBUS       A321…       2   199     0 Turbo…
-##  2 N101DU   2018 Fixed wing multi… C SERIES AI… BD-5…       2   133     0 Turbo…
-##  3 N101HQ   2007 Fixed wing multi… EMBRAER-EMP… ERJ …       2    80     0 Turbo…
-##  4 N101NN   2013 Fixed wing multi… AIRBUS INDU… A321…       2   379     0 Turbo…
-##  5 N102DN   2020 Fixed wing multi… AIRBUS       A321…       2   199     0 Turbo…
-##  6 N102DU     NA Fixed wing multi… C SERIES AI… BD-5…       2   133     0 Turbo…
-##  7 N102HQ   2007 Fixed wing multi… EMBRAER-EMP… ERJ …       2    80     0 Turbo…
-##  8 N102NN   2013 Fixed wing multi… AIRBUS       A321…       2   379     0 Turbo…
-##  9 N102UW   1998 Fixed wing multi… AIRBUS INDU… A320…       2   182     0 Turbo…
-## 10 N103DU     NA Fixed wing multi… C SERIES AI… BD-5…       2   133     0 Turbo…
-## # ℹ 4,830 more rows</code></pre>
-<pre class="r"><code>airports</code></pre>
-<pre><code>## # A tibble: 1,255 × 8
-##    faa   name                                 lat    lon   alt    tz dst   tzone
-##    &lt;chr&gt; &lt;chr&gt;                              &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;
-##  1 AAF   Apalachicola Regional Airport       29.7  -85.0    20    -5 A     Amer…
-##  2 AAP   Andrau Airpark                      29.7  -95.6    79    -6 A     Amer…
-##  3 ABE   Lehigh Valley International Airpo…  40.7  -75.4   393    -5 A     Amer…
-##  4 ABI   Abilene Regional Airport            32.4  -99.7  1791    -6 A     Amer…
-##  5 ABL   Ambler Airport                      67.1 -158.    334    -9 A     Amer…
-##  6 ABQ   Albuquerque International Sunport   35.0 -107.   5355    -7 A     Amer…
-##  7 ABR   Aberdeen Regional Airport           45.4  -98.4  1302    -6 A     Amer…
-##  8 ABY   Southwest Georgia Regional Airport  31.5  -84.2   197    -5 A     Amer…
-##  9 ACK   Nantucket Memorial Airport          41.3  -70.1    47    -5 A     Amer…
-## 10 ACT   Waco Regional Airport               31.6  -97.2   516    -6 A     Amer…
-## # ℹ 1,245 more rows</code></pre>
-<pre class="r"><code>flights %&gt;%                                     # Pasa el dataset &#39;flights&#39; a la siguiente función utilizando el operador pipe
-  inner_join(planes, by = &quot;tailnum&quot;) %&gt;%         # Realiza una unión interna con el dataset &#39;planes&#39; usando &#39;tailnum&#39; como clave de unión
-  inner_join(airports, by = c(&#39;origin&#39; = &#39;faa&#39;)) %&gt;% # Realiza una unión interna con el dataset &#39;airports&#39; usando &#39;origin&#39; y &#39;faa&#39; como claves de unión
-  inner_join(airlines, by = &#39;carrier&#39;)           # Realiza una unión interna con el dataset &#39;airlines&#39; usando &#39;carrier&#39; como clave de unión</code></pre>
-<pre><code>## # A tibble: 424,068 × 35
-##    year.x month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
-##     &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
-##  1   2023     1     1        1           2038       203      328              3
-##  2   2023     1     1       18           2300        78      228            135
-##  3   2023     1     1       31           2344        47      500            426
-##  4   2023     1     1       33           2140       173      238           2352
-##  5   2023     1     1       36           2048       228      223           2252
-##  6   2023     1     1      503            500         3      808            815
-##  7   2023     1     1      520            510        10      948            949
-##  8   2023     1     1      524            530        -6      645            710
-##  9   2023     1     1      537            520        17      926            818
-## 10   2023     1     1      547            545         2      845            852
-## # ℹ 424,058 more rows
-## # ℹ 27 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,
-## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,
-## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, year.y &lt;int&gt;, type &lt;chr&gt;,
-## #   manufacturer &lt;chr&gt;, model &lt;chr&gt;, engines &lt;int&gt;, seats &lt;int&gt;, speed &lt;int&gt;,
-## #   engine &lt;chr&gt;, name.x &lt;chr&gt;, lat &lt;dbl&gt;, lon &lt;dbl&gt;, alt &lt;dbl&gt;, tz &lt;dbl&gt;,
-## #   dst &lt;chr&gt;, tzone &lt;chr&gt;, name.y &lt;chr&gt;</code></pre>
-<pre class="r"><code>dataset %&gt;%                                              # Pasa el dataset original a la siguiente función utilizando el operador pipe
-  filter(!is.na(air_time)) %&gt;%                           # Filtra las filas donde la columna &#39;air_time&#39; no es NA (eliminando los vuelos con &#39;NA&#39; en &#39;air_time&#39;)
-  ggplot(aes(x = air_time, y = after_stat(density))) +   # Inicializa un gráfico de ggplot donde &#39;x&#39; es &#39;air_time&#39; y &#39;y&#39; es la densidad
-  geom_density(col = &quot;steel blue&quot;, lwd = 0.5) +          # Añade una curva de densidad con color azul acero y grosor de línea 0.5
-  geom_histogram(data = dataset, aes(x = air_time), fill=&quot;red&quot;, alpha = 0.3, bins = 50) +  # Añade un histograma sobre el gráfico, con las barras rojas, transparencia 0.3, y 50 bins
-  xlab(&quot;Tiempo en vuelo&quot;) +                              # Añade etiqueta al eje X: &quot;Tiempo en vuelo&quot;
-  ylab(&quot;Densidad&quot;) +                                    # Añade etiqueta al eje Y: &quot;Densidad&quot;
-  ggtitle(&quot;Densidad de Tiempo en vuelo&quot;) +               # Añade título al gráfico: &quot;Densidad de Tiempo en vuelo&quot;
-  theme_classic()                                       # Aplica el tema clásico (limpio y sencillo) al gráfico</code></pre>
-<pre><code>## Warning: Removed 12534 rows containing non-finite outside the scale range
-## (`stat_bin()`).</code></pre>
-<p><img role="img" src="data:image/png;base64,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" width="672" /></p>
+c(
+  P_dos_caras = mean(caras == 2),
+  P_al_menos_una_sello = mean(apply(monedas, 2, function(x) &quot;s&quot; %in% x)),
+  P_todas_iguales = mean(apply(monedas, 2, function(x) length(unique(x)) == 1))
+)</code></pre>
+<pre><code>##          P_dos_caras P_al_menos_una_sello      P_todas_iguales 
+##                0.373                0.878                0.242</code></pre>
 </div>
-<div id="clase-0506" class="section level1">
-<h1>Clase 05/06</h1>
-<div id="ejercicio-1-lanzamiento-de-un-dado" class="section level2">
-<h2>Ejercicio 1: Lanzamiento de un dado</h2>
-<p>Enunciado: Supon que lanzas un dado justo de 6 caras. Define el
-espacio muestral y calcula la siguientes probabilidades a) que salga
-número par b) que salga un número mayor a 4 c) que salga un numero par y
-mayor a 4</p>
-<pre class="r"><code># espacio muestral
-dado &lt;- 1:6
+<div id="ejercicio-3-se-extrae-una-carta-de-una-baraja-estándar-52-cartas.-calcular" class="section level2">
+<h2>Ejercicio 3: Se extrae una carta de una baraja estándar (52 cartas).
+Calcular:</h2>
+<p>A. A: la carta es de corazón. B. B: la carta es una figura (J, Q o
+K). C. ¿Son independientes los eventos A y B?</p>
+<pre class="r"><code>baraja &lt;- expand.grid(valor=c(1:10, &quot;J&quot;, &quot;Q&quot;, &quot;K&quot;), palo=c(&quot;Corazon&quot;, &quot;Diamante&quot;, &quot;Trebol&quot;, &quot;Espada&quot;))
 
-# Eventos
-Evento_par &lt;- dado[dado %% 2 == 0]
-Evento_mayor4 &lt;- dado[dado &gt; 4]
-Evento_ambos &lt;- intersect(Evento_par, Evento_mayor4)
+A &lt;- baraja$palo == &quot;Corazon&quot;
+B &lt;- baraja$valor %in% c(&quot;J&quot;, &quot;Q&quot;, &quot;K&quot;)
 
-# Probabilidades
-Prob_par &lt;- length(Evento_par) / length(dado)
-Prob_mayor4 &lt;- length(Evento_mayor4) / length(dado)
-Prob_ambos &lt;- length(Evento_ambos) / length(dado)
+independientes &lt;- mean(A &amp; B) == mean(A) * mean(B)
 
-print(c(Prob_par, Prob_mayor4, Prob_ambos))</code></pre>
-<pre><code>## [1] 0.5000000 0.3333333 0.1666667</code></pre>
-</div>
-<div id="ejercicio-2-moneda-doble" class="section level2">
-<h2>Ejercicio 2: Moneda Doble</h2>
-<p>Objetivo: Simular y calcular probabilidades Enunciado: Se lanza dos
-veces una moneda justa. Simula el experimento 1000 veces y calcula: a)
-La probabilidad de que ambas salidas sean caras. b) La probabilidad de
-que al menos una sea cara.</p>
-<pre class="r"><code>set.seed(123)
-lanzamientos &lt;- replicate(1000, sample(c(&quot;c&quot;, &quot;s&quot;), 2, replace = T))
-
-ambas_caras &lt;- apply(lanzamientos, 2, function(x) all(x == &quot;c&quot;))
-al_menos_una_cara &lt;- apply(lanzamientos, 2, function(x) &quot;c&quot; %in% x)
-
-Prob_ambas_caras &lt;- mean(ambas_caras)
-Prob_al_mennos_una_cara &lt;- mean(al_menos_una_cara)
-
-print(c(Prob_ambas_caras, Prob_al_mennos_una_cara))</code></pre>
-<pre><code>## [1] 0.264 0.757</code></pre>
-</div>
-<div id="ejercicio-3-probabilidad-condicional" class="section level2">
-<h2>Ejercicio 3: Probabilidad condicional</h2>
-<p>Enunciado: De una bolsa con 3 bolas rojas y 2 bolas azules, se
-extraen 2 bolas sin reemplazo. Calcula: a) La probabilidad de que la
-segunda bola sea roja dado que la primera fue roja.</p>
-<pre class="r"><code>set.seed(456)
-resultados &lt;- replicate(10000, sample(c(&quot;R&quot;, &quot;R&quot;, &quot;R&quot;, &quot;A&quot;, &quot;A&quot;), 2, replace = F))
-
-Primera_roja &lt;- resultados[1,] == &quot;R&quot;
-Segunda_roja &lt;- resultados[2,] == &quot;R&quot;
-
-# Probabilidad condicional
-Prob_Condicional &lt;- mean(Segunda_roja[Primera_roja])
-
-print(Prob_Condicional)</code></pre>
-<pre><code>## [1] 0.5049472</code></pre>
-</div>
-<div id="ejercicio-4-independencia" class="section level2">
-<h2>Ejercicio 4: Independencia</h2>
-<p>Enunciado: Lanza dos dados. Define los eventos: a) La suma es par B)
-El primer dado es par ¿Son independientes los eventos A y B?</p>
-<pre class="r"><code>dado1 &lt;- sample(1:6, 1000, replace = T)
-dado2 &lt;- sample(1:6, 1000, replace = T)
-
-Evento_A &lt;- (dado1 + dado2) %% 2 == 0
-Evento_B &lt;- dado1 %% 2 == 0
-
-Prob_A &lt;- mean(Evento_A)
-Prob_B &lt;- mean(Evento_B)
-Prob_AyB &lt;- mean(Evento_A &amp; Evento_B)
-
-# Verificar Independencia
-Independencia &lt;- Prob_AyB == Prob_A * Prob_B
-
-print(list(P_A = Prob_A, P_B = Prob_B, P_AyB = Prob_AyB, Independientes = Independencia))</code></pre>
+list(P_A = mean(A), P_B = mean(B), Independientes = independientes)</code></pre>
 <pre><code>## $P_A
-## [1] 0.497
+## [1] 0.25
 ## 
 ## $P_B
-## [1] 0.485
-## 
-## $P_AyB
-## [1] 0.243
+## [1] 0.2307692
 ## 
 ## $Independientes
-## [1] FALSE</code></pre>
+## [1] TRUE</code></pre>
 </div>
 </div>
 

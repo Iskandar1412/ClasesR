@@ -1,0 +1,149 @@
+---
+title: "Tarea_1"
+author: "Juan_Urbina"
+date: "2025-06-06"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+# Parte 1
+
+Escriba el código de R necesario para resolver los siguientes incisos trate de usar la menor cantidad
+de líneas posible.
+
+1. ¿Cómo generaría un arreglo aleatorio de 250 elementos con los colores primarios?
+
+```{r}
+ejer_1 <- sample(c("rojo", "azul", "amarillo"), 250, replace = TRUE)
+ejer_1
+```
+
+2. Dado un arreglo de 120000 elementos de números enteros entre 40 y 70, ¿Cómo haría para obtener la desviación estándar de aquellos números que son mayores a 55 y menores a 64?
+
+```{r}
+ejer_2 <- sd(sample(40:70, 120000, TRUE)[sample(40:70, 120000, TRUE) > 55 & sample(40:70, 120000, TRUE) < 64])
+ejer_2
+```
+
+3. Sabemos que para sumar vectores estos deben tener la misma longitud. Sin embargo, R trabaja de manera distinta. Defina los vectores x = (1, 2, 3, 4, 5, 6), y = (7, 8), z = (9, 10, 11, 12).
+  a. Calcula:
+     i. x + x
+     ii. x + y.
+     iii. Responda ¿Qué ha hecho R?
+
+```{r}
+x <- 1:6
+y <- 7:8; z <- 9:12
+
+# Parte (i)
+x + x
+
+# Parte (ii)
+x + y
+
+# Parte(iii)
+## R recicla los valores de 'y' para completar la longitud de 'x'
+```
+
+4. Si b <- list(a=1:10, c=“Hola”, d=“XX”), escriba una expresión en R que devuelva todos los elementos de la lista excepto los elementos 2,4,6,7,8 del vector a.
+
+```{r}
+b <- list(a=1:10, c="Hola", d="XX")
+
+b$a[!1:10 %in% c(2,4,6,7,8)]
+```
+
+5. Suponga que se almacena en una variable un arreglo con todos los números de carnet de los estudiantes de la Escuela de Ciencias y Sistemas en forma de string, los carnets tienen al inicio cuatro caracteres que identifican el año en el que la persona entró a la universidad, por ejemplo: 201900452 hacer referencia a una persona que ingreso en el año 2019, 200600987 hace referencia a una persona que ingreso que el año 2006.
+  a. ¿Cómo haría para contar la cantidad de alumnos por año?
+
+```{r}
+carnets <- c("201900452", "201800321", "201900987", "200600123", "200600987", 
+             "201700111", "201800222", "201900333", "202000555", "202000666")
+
+table(substr(carnets, 1, 4))
+```
+
+6. Dada la variable string <- "Hola Mundo", escriba una instrucción en R que devuelva la siguiente salida: [[1]] [1] "Hola" [[2]] [1] "Mundo”.
+
+```{r}
+string <- strsplit("Hola Mundo", " ")
+
+string
+string[[1]][1]
+string[[1]][2]
+```
+
+7. Utilizando el dataset flights de la librería nycflights23 (recordando: dataset<- flights), realizar lo siguiente:
+  a. Mostrar una gráfica de barras de manera decreciente con la cantidad de vuelo por aerolínea (columna “carrier”)
+  b. Mostrar una gráfica de líneas de cantidad de vuelos por mes (columna “month”).
+
+```{r}
+library(nycflights13)
+library(dplyr)
+library(ggplot2)
+
+# 7.a
+flights %>% count(carrier, sort=TRUE) %>%
+  ggplot(aes(x=reorder(carrier, -n), y=n)) + geom_bar(stat="identity")
+```
+```{r}
+# 7.b
+flights %>% count(month) %>%
+  ggplot(aes(x=month, y=n)) + geom_line()
+```
+
+# Parte 2
+
+## Ejercicio 1: Lanzamiento de dos dados
+
+Lanza dos dados justos. Define el espacio muestral y calcula las siguientes probabilidades:
+  A. Que la suma sea 7.
+  B. Que ambos dados muestren el mismo número.
+  C. Que la suma sea 7 o los dados muestren el mismo número.
+
+```{r}
+muestral <- expand.grid(d1 = 1:6, d2 = 1:6)
+A <- with(muestral, d1 + d2 == 7)
+B <- with(muestral, d1 == d2)
+C <- A | B
+c(P_A = mean(A), P_B = mean(B), P_C = mean(C))
+```
+
+## Ejercicio 2: Lanzamiento de tres monedas
+
+Lanza tres monedas justas. Simula este experimento 1000 veces y calcula:
+  A. La probabilidad de que salgan exactamente dos caras.
+  B. La probabilidad de que al menos una sea sello.
+  C. La probabilidad de que todas sean iguales.
+
+```{r}
+set.seed(1)
+
+monedas <- replicate(1000, sample(c("c", "s"), 3, replace=TRUE))
+
+caras <- apply(monedas, 2, function(x) sum(x == "c"))
+
+c(
+  P_dos_caras = mean(caras == 2),
+  P_al_menos_una_sello = mean(apply(monedas, 2, function(x) "s" %in% x)),
+  P_todas_iguales = mean(apply(monedas, 2, function(x) length(unique(x)) == 1))
+)
+```
+
+## Ejercicio 3: Se extrae una carta de una baraja estándar (52 cartas). Calcular:
+
+  A. A: la carta es de corazón.
+  B. B: la carta es una figura (J, Q o K).
+  C. ¿Son independientes los eventos A y B?
+
+```{r}
+baraja <- expand.grid(valor=c(1:10, "J", "Q", "K"), palo=c("Corazon", "Diamante", "Trebol", "Espada"))
+
+A <- baraja$palo == "Corazon"
+B <- baraja$valor %in% c("J", "Q", "K")
+
+independientes <- mean(A & B) == mean(A) * mean(B)
+
+list(P_A = mean(A), P_B = mean(B), Independientes = independientes)
+```
